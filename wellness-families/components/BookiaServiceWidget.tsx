@@ -23,25 +23,22 @@ export default function BookiaServiceWidget() {
         
         <div className="space-y-4 mb-8">
           <Link
-            href="https://services.bookio.com/wellmass-zktmzrwb?lang=sk&hiddenHeader=true"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/kontakt"
             className="inline-block bg-[#c97d60] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#b86a4d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 w-full sm:w-auto min-h-[44px] flex items-center justify-center touch-manipulation"
           >
-            Otvoriť rezervačný systém
+            Kontaktovať pre rezerváciu
           </Link>
         </div>
         
         <div className="bg-[#faf9f7] rounded-xl p-6 border border-[#e8e6e3]">
           <p className="text-sm text-[#6b6b6b] mb-2">
-            <strong className="text-[#2c2c2c]">Poznámka:</strong> Rezervačný systém sa otvorí v novom okne.
+            <strong className="text-[#2c2c2c]">Poznámka:</strong> Online rezervačný systém dočasne nefunguje.
           </p>
           <p className="text-sm text-[#6b6b6b]">
-            V rezervačnom systéme si môžete vybrať z kategórií: Wellness, Sauna, Relax alebo Masáž.
+            Rezervujte prosím cez kontaktný formulár alebo email/telefonát na stránke Kontakt.
           </p>
         </div>
       </div>
     </div>
   );
 }
-
