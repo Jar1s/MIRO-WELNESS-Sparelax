@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Kontakt - Wellness Heaven | Kontaktné informácie',
-  description: 'Kontaktujte nás na adrese Ivanská cesta 15, 821 04 Bratislava. Otváracie hodiny: Po-Pi 11:00-22:00, So-Ne 10:00-22:00.',
+  description: 'Kontaktujte nás na adrese Tomášikova, 821 01 Bratislava. Otváracie hodiny: Po-Pi 11:00-22:00, So-Ne 10:00-22:00.',
 };
 
 export default function KontaktPage() {
@@ -25,43 +25,29 @@ export default function KontaktPage() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 border border-[#e8e6e3]">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+          <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10 md:p-12 border border-[#e8e6e3] text-center space-y-3">
             <h2 className="text-xl sm:text-2xl font-display font-bold text-[#2c2c2c] mb-6 sm:mb-8">
               Kde nás nájdete
             </h2>
             <div className="space-y-4 sm:space-y-6">
-              <div className="flex items-start">
-                <div className="bg-[#c97d60]/10 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 flex-shrink-0">
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#c97d60]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[#2c2c2c] font-semibold mb-1 text-sm sm:text-base">Adresa</p>
-                  <p className="text-[#6b6b6b] text-sm sm:text-base">Ivanská cesta 15</p>
-                  <p className="text-[#6b6b6b] text-sm sm:text-base">821 04 Bratislava</p>
-                </div>
+              <div className="space-y-2">
+                <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">Adresa</p>
+                <p className="text-[#6b6b6b] text-sm sm:text-base">Tomášikova</p>
+                <p className="text-[#6b6b6b] text-sm sm:text-base">821 01 Bratislava</p>
+                <p className="text-[#9b9b9b] text-xs sm:text-sm mt-1">GPS: 48.163154, 17.157358</p>
               </div>
               
-              <div className="flex items-start">
-                <div className="bg-[#c97d60]/10 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 flex-shrink-0">
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#c97d60]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[#2c2c2c] font-semibold mb-1 text-sm sm:text-base">Email</p>
-                  <a href="mailto:inforuzinov@wellmass.sk" className="text-[#c97d60] hover:text-[#b86a4d] transition-colors font-medium text-sm sm:text-base break-all">
-                    inforuzinov@wellmass.sk
-                  </a>
-                </div>
+              <div className="space-y-2">
+                <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">Email</p>
+                <a href="mailto:inforuzinov@wellmass.sk" className="text-[#c97d60] hover:text-[#b86a4d] transition-colors font-medium text-sm sm:text-base break-all">
+                  inforuzinov@wellmass.sk
+                </a>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 border border-[#e8e6e3]">
+          <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-10 md:p-12 border border-[#e8e6e3] text-center space-y-4">
             <h2 className="text-xl sm:text-2xl font-display font-bold text-[#2c2c2c] mb-6 sm:mb-8">
               Otváracie hodiny
             </h2>
@@ -86,7 +72,7 @@ export default function KontaktPage() {
             </h2>
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
               <iframe
-                src="https://www.google.com/maps?q=Ivanská+cesta+15,+821+04+Bratislava&output=embed"
+                src="https://www.google.com/maps?q=48.163154,17.157358&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -94,12 +80,12 @@ export default function KontaktPage() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
-                title="Wellness Heaven - Ivanská cesta 15, Bratislava"
+                title="Wellness Heaven - Tomášikova, Bratislava"
               ></iframe>
             </div>
             <div className="p-6 sm:p-8 md:p-10 pt-4 sm:pt-6">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Ivanská+cesta+15,+821+04+Bratislava"
+                href="https://www.google.com/maps/search/?api=1&query=48.163154,17.157358"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-[#c97d60] hover:text-[#b86a4d] transition-colors font-medium text-sm sm:text-base min-h-[44px] touch-manipulation"

@@ -33,7 +33,7 @@ const services = [
   {
     title: 'Relaxačná miestnosť',
     description: 'Vstúpte do priestoru pokoja, kde sa zastavuje čas. Relaxačná miestnosť je ideálnym miestom na odpočinok po saune, masáži alebo náročnom dni.',
-    image: '/images/new-photos/photo-10.jpg',
+    image: '/images/photo-3.png',
     features: [
       'Pohodlné ležadlá',
       'Tichá zóna',
@@ -44,7 +44,7 @@ const services = [
   {
     title: 'Uvoľnenie pri masáži',
     description: 'Nechajte si chvíľku iba pre seba a doprajte si masáž, uvoľnite stuhnuté svaly a zrelaxujte telo. Vyberte si niektorú z našich masáži, ktoré Vám ponúkame.',
-    image: '/images/new-photos/photo-11.jpg',
+    image: '/images/photo-13.png',
     features: [
       'Relaxačné masáže',
       'Terapeutické masáže',
@@ -53,6 +53,10 @@ const services = [
     ],
   },
 ];
+
+const bookiaLink = process.env.NEXT_PUBLIC_BOOKIA_ID
+  ? `https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID}`
+  : '/rezervacia';
 
 export default function SluzbyPage() {
   return (
@@ -79,12 +83,12 @@ export default function SluzbyPage() {
               <div className={`grid grid-cols-1 md:grid-cols-2 gap-0 ${
                 index % 2 === 0 ? '' : 'md:flex-row-reverse'
               }`}>
-                <div className="relative h-64 sm:h-80 md:h-96">
+                <div className="relative h-full min-h-[280px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px]">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover"
+                    className="object-cover object-center w-full h-full"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -118,12 +122,14 @@ export default function SluzbyPage() {
           >
             Zobraziť cenník
           </Link>
-          <Link
-            href="/rezervacia"
+          <a
+            href={bookiaLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-transparent text-[#2c2c2c] px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#f5f3f0] transition-all border-2 border-[#2c2c2c] min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
           >
             Rezervovať teraz
-          </Link>
+          </a>
         </div>
       </div>
     </div>

@@ -8,6 +8,9 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(false);
   const [isMounted] = useState(true);
+  const bookiaLink = process.env.NEXT_PUBLIC_BOOKIA_ID
+    ? `https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID}`
+    : '/rezervacia';
 
   useEffect(() => {
     if (videoRef.current && isMounted) {
@@ -149,12 +152,14 @@ export default function Hero() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <Link
-              href="/rezervacia"
+            <a
+              href={bookiaLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#c97d60] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#b86a4d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-center min-h-[44px] flex items-center justify-center touch-manipulation"
             >
               Rezervovať vstup
-            </Link>
+            </a>
           </div>
         </div>
       </div>

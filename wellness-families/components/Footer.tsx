@@ -5,9 +5,9 @@ export default function Footer() {
     <footer className="bg-[#2c2c2c] text-white mt-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center">
         <div className="flex flex-col items-center gap-10 sm:gap-12">
-          <div className="space-y-4 sm:space-y-6 max-w-2xl">
-            <h3 className="text-2xl sm:text-3xl font-display font-bold text-white">Wellness Heaven</h3>
-            <p className="text-white/70 leading-relaxed text-sm sm:text-base">
+          <div className="space-y-5 sm:space-y-7 max-w-2xl">
+            <h3 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-wide">Wellness Heaven</h3>
+            <p className="text-white/70 leading-relaxed text-sm sm:text-base tracking-wide">
               Privátny Wellness v Bratislave – Ružinov. Súkromný wellness, 
               kde sa zameriavame na každého jednotlivého zákazníka.
             </p>
@@ -27,11 +27,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 tracking-wide">
             <h4 className="text-base sm:text-lg font-display font-semibold text-white">Kontakt</h4>
-            <div className="text-white/70 text-sm sm:text-base space-y-1">
-              <p>Ivanská cesta 15</p>
-              <p>821 04 Bratislava</p>
+            <div className="text-white/70 text-sm sm:text-base space-y-2">
+              <p>Tomášikova</p>
+              <p>821 01 Bratislava</p>
               <p>
                 <a href="mailto:inforuzinov@wellmass.sk" className="hover:text-[#c97d60] transition-colors break-all">
                   inforuzinov@wellmass.sk
@@ -40,9 +40,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3 tracking-wide">
             <h4 className="text-base sm:text-lg font-display font-semibold text-white">Otváracie hodiny</h4>
-            <div className="text-white/70 text-sm sm:text-base space-y-2">
+            <div className="text-white/70 text-sm sm:text-base space-y-3">
               <div>
                 <p>Pondelok – Piatok</p>
                 <p className="font-semibold text-white">11:00 – 22:00</p>
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 text-center text-white/50 text-xs sm:text-sm">
+        <div className="border-t border-white/10 mt-10 pt-6 text-center text-white/50 text-xs sm:text-sm tracking-wide">
           <p>&copy; 2025 Wellness Heaven. Všetky práva vyhradené.</p>
         </div>
       </div>

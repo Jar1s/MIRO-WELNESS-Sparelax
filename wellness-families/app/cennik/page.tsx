@@ -1,56 +1,15 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 const pricing = [
-  {
-    service: 'Vstup na 1 hodinu pre 1 osobu',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/new-photos/photo-04.jpg',
-  },
-  {
-    service: 'Vstup na 2 hodiny pre 1 osobu',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/new-photos/photo-05.jpg',
-  },
-  {
-    service: 'Vstup na 1 hodinu pre 2 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov pre rodinu',
-    image: '/images/new-photos/photo-06.jpg',
-  },
-  {
-    service: 'Vstup na 2 hodiny pre 2 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov pre rodinu',
-    image: '/images/new-photos/photo-07.jpg',
-  },
-  {
-    service: 'Vstup na 2 hodiny pre 3 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov pre rodinu',
-    image: '/images/new-photos/photo-12.jpg',
-  },
-  {
-    service: 'Vstup na 2 hodiny pre 4 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov pre rodinu',
-    image: '/images/new-photos/photo-13.jpg',
-  },
-  {
-    service: 'Privátny 2h romantický balíček pre dvoch',
-    price: '€XX',
-    description: 'so sektom a ovocnou misou',
-    image: '/images/new-photos/photo-18.jpg',
-  },
-  {
-    service: 'Privátny 2h vstup pre 1-4 osôb',
-    price: '€XX',
-    description: 'Každá ďalšia osoba 12€',
-    image: '/images/new-photos/photo-19.jpg',
-  },
+  { duration: '60 min', price: '50 €' },
+  { duration: '90 min', price: '60 €' },
+  { duration: '120 min', price: '70 €' },
+  { duration: '180 min', price: '120 €' },
 ];
+
+const bookiaLink = process.env.NEXT_PUBLIC_BOOKIA_ID
+  ? `https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID}`
+  : '/rezervacia';
 
 export default function CennikPage() {
   return (
@@ -66,55 +25,34 @@ export default function CennikPage() {
           <div className="w-24 h-1 bg-[#c97d60] mx-auto"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 border border-[#e8e6e3]">
-            <p className="text-center text-[#6b6b6b] text-base sm:text-lg leading-relaxed">
-              <strong className="text-[#2c2c2c]">Pre všetky vstupy:</strong> zapožičanie plachty a uteráku v cene. 
-              Osušku a župan vám radi zapožičiame za 1,5€, resp. za 2,5€.
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 border border-[#e8e6e3] text-center">
+            <p className="text-[#6b6b6b] text-base sm:text-lg leading-relaxed">
+              <strong className="text-[#2c2c2c]">Privátny wellness č.1</strong> — zapožičanie plachty a uteráku v cene.
+              Osušku a župan vám radi zapožičiame za 1,5€, resp. 2,5€.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            {pricing.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-[#e8e6e3] group hover:-translate-y-2"
-              >
-                <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.service}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                </div>
-                <div className="p-6 sm:p-8">
-                  <h3 className="text-lg sm:text-xl font-display font-semibold text-[#2c2c2c] mb-2 sm:mb-3">
-                    {item.service}
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#6b6b6b] mb-4 sm:mb-6 leading-relaxed">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-[#e8e6e3]">
-                    <span className="text-xs sm:text-sm text-[#6b6b6b] uppercase tracking-wide">Cena</span>
-                    <p className="text-3xl sm:text-4xl font-display font-bold text-[#c97d60]">
-                      {item.price}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-[#e8e6e3]">
+            <ul className="divide-y divide-[#e8e6e3]">
+              {pricing.map((item, index) => (
+                <li key={index} className="py-4 sm:py-5 flex items-center justify-between">
+                  <div className="text-lg sm:text-xl font-display text-[#2c2c2c]">{item.duration}</div>
+                  <div className="text-2xl sm:text-3xl font-display font-bold text-[#c97d60]">{item.price}</div>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="text-center flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <Link
-              href="/rezervacia"
+          <div className="text-center flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center mt-10">
+            <a
+              href={bookiaLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-[#c97d60] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#b86a4d] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
             >
               Rezervovať teraz
-            </Link>
+            </a>
             <Link
               href="/kontakt"
               className="inline-block bg-transparent text-[#2c2c2c] px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#f5f3f0] transition-all border-2 border-[#2c2c2c] min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
@@ -127,4 +65,3 @@ export default function CennikPage() {
     </div>
   );
 }
-
