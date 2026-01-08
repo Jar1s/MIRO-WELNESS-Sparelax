@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,9 +19,32 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+const gadsId = process.env.NEXT_PUBLIC_GADS_ID;
+const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
+
 export const metadata: Metadata = {
   title: "Wellness Heaven - Privátny Wellness | Bratislava",
   description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
+  metadataBase: new URL("https://wellness-heaven.vercel.app"),
+  openGraph: {
+    title: "Wellness Heaven - Privátny Wellness | Bratislava",
+    description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
+    images: [
+      {
+        url: "/images/Photo 11.png",
+        width: 1200,
+        height: 630,
+        alt: "Wellness Heaven lounge",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wellness Heaven - Privátny Wellness | Bratislava",
+    description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
+    images: ["/images/Photo 11.png"],
+  },
 };
 
 export default function RootLayout({
@@ -41,6 +65,49 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-body antialiased`}>
+        {(gaId || gadsId) && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId || gadsId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                ${gaId ? `gtag('config', '${gaId}');` : ""}
+                ${gadsId ? `gtag('config', '${gadsId}');` : ""}
+              `}
+            </Script>
+          </>
+        )}
+
+        {fbPixelId && (
+          <>
+            <Script id="fb-pixel" strategy="afterInteractive">
+              {`
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${fbPixelId}');
+                fbq('track', 'PageView');
+              `}
+            </Script>
+            <noscript
+              aria-hidden="true"
+              dangerouslySetInnerHTML={{
+                __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${fbPixelId}&ev=PageView&noscript=1" />`,
+              }}
+            />
+          </>
+        )}
+
         <Header />
         <main className="overflow-x-hidden">{children}</main>
         <Footer />

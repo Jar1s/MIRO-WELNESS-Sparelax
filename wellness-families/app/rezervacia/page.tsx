@@ -28,7 +28,7 @@ export default function RezervaciaPage() {
             Online rezervačný systém je dočasne nedostupný. Rezervujte prosím cez náš kontaktný formulár alebo email.
           </p>
           <div className="space-y-3 text-[#2c2c2c] text-base sm:text-lg">
-            <p className="font-semibold">Email: <a className="text-[#c97d60] hover:text-[#b86a4d]" href="mailto:inforuzinov@wellmass.sk">inforuzinov@wellmass.sk</a></p>
+            <p className="font-semibold">Email: <a className="text-[#c97d60] hover:text-[#b86a4d]" href="mailto:wellnessheavensk@gmail.com">wellnessheavensk@gmail.com</a></p>
             <p className="text-[#6b6b6b]">Adresa: Tomášikova, 821 01 Bratislava</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4">

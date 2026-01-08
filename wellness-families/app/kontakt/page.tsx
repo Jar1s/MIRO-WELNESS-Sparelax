@@ -40,8 +40,8 @@ export default function KontaktPage() {
               
               <div className="space-y-2">
                 <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">Email</p>
-                <a href="mailto:inforuzinov@wellmass.sk" className="text-[#c97d60] hover:text-[#b86a4d] transition-colors font-medium text-sm sm:text-base break-all">
-                  inforuzinov@wellmass.sk
+                <a href="mailto:wellnessheavensk@gmail.com" className="text-[#c97d60] hover:text-[#b86a4d] transition-colors font-medium text-sm sm:text-base break-all">
+                  wellnessheavensk@gmail.com
                 </a>
               </div>
             </div>

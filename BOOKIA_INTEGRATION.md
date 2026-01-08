@@ -152,3 +152,4 @@ Obe stránky používajú rovnaký Bookia ID z environment variable.
 
 
 
+

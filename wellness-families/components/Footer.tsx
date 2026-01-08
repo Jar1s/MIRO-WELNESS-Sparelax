@@ -33,8 +33,8 @@ export default function Footer() {
               <p>Tomášikova</p>
               <p>821 01 Bratislava</p>
               <p>
-                <a href="mailto:inforuzinov@wellmass.sk" className="hover:text-[#c97d60] transition-colors break-all">
-                  inforuzinov@wellmass.sk
+                <a href="mailto:wellnessheavensk@gmail.com" className="hover:text-[#c97d60] transition-colors break-all">
+                  wellnessheavensk@gmail.com
                 </a>
               </p>
             </div>
