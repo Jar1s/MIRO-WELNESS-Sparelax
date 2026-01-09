@@ -104,8 +104,10 @@ export default function Faq() {
                   </div>
                 </button>
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 sm:pb-7 pt-0 text-sm sm:text-base text-[#5b5b5b] leading-relaxed border-t border-[#f1ebe4] text-center">
-                    {faq.answer}
+                  <div className="px-5 sm:px-6 pb-6 sm:pb-7 pt-0 border-t border-[#f1ebe4]">
+                    <div className="text-sm sm:text-base text-[#5b5b5b] leading-relaxed text-center flex items-center justify-center min-h-[60px]">
+                      {faq.answer}
+                    </div>
                   </div>
                 )}
               </div>
