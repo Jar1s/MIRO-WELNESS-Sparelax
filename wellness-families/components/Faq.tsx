@@ -69,36 +69,52 @@ export default function Faq() {
   );
 
   return (
-    <section className="py-14 sm:py-16 md:py-20">
-      <div className="text-center mb-8 sm:mb-10">
-        <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#2c2c2c]">
-          Často kladené otázky
-        </h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
-          return (
-            <div
-              key={faq.question}
-              className="bg-white border border-[#e8e6e3] rounded-xl sm:rounded-2xl shadow-sm overflow-hidden"
-            >
-              <button
-                className="w-full flex items-center justify-between text-left px-4 sm:px-6 py-4 sm:py-5 text-[#2c2c2c] font-semibold"
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                aria-expanded={isOpen}
+    <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-[#f6f2ec] via-white to-[#f6f2ec]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-10">
+          <p className="text-[#c97d60] uppercase tracking-[0.24em] text-xs sm:text-sm font-semibold mb-3">
+            FAQ
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#2c2c2c] mb-3">
+            Často kladené otázky
+          </h2>
+          <p className="text-[#6b6b6b] text-base sm:text-lg">
+            Rýchle odpovede na to, čo riešia hostia pred príchodom.
+          </p>
+        </div>
+
+        <div className="space-y-3 sm:space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={faq.question}
+                className="bg-white/90 backdrop-blur border border-[#ebe6df] rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden"
               >
-                <span className="pr-4">{faq.question}</span>
-                <Chevron open={isOpen} />
-              </button>
-              {isOpen && (
-                <div className="px-4 sm:px-6 pb-4 sm:pb-5 text-sm sm:text-base text-[#6b6b6b] leading-relaxed border-t border-[#f0eeeb]">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                <button
+                  className="w-full flex items-start justify-between gap-3 sm:gap-4 text-left px-5 sm:px-6 py-4 sm:py-5"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#c97d60]" aria-hidden="true" />
+                    <span className="text-base sm:text-lg font-semibold text-[#2c2c2c] leading-snug">
+                      {faq.question}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#f7f2ec] border border-[#e8e2da]">
+                    <Chevron open={isOpen} />
+                  </div>
+                </button>
+                {isOpen && (
+                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 text-sm sm:text-base text-[#5b5b5b] leading-relaxed border-t border-[#f1ebe4]">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
