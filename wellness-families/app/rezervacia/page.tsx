@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Faq from '@/components/Faq';
 
 export const metadata: Metadata = {
   title: 'Rezervácia - Wellness Heaven | Online rezervácia',
@@ -42,7 +41,6 @@ export default function RezervaciaPage() {
           </div>
         </div>
 
-        <Faq />
       </div>
     </div>
   );

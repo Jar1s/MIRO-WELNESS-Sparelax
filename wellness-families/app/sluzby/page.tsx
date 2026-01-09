@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import Faq from '@/components/Faq';
 
 export const metadata: Metadata = {
   title: 'Služby - Wellness Heaven | Wellness Bratislava',
@@ -121,6 +122,10 @@ export default function SluzbyPage() {
           >
             Rezervovať teraz
           </Link>
+        </div>
+
+        <div className="mt-14 sm:mt-16 md:mt-20">
+          <Faq />
         </div>
       </div>
     </div>
