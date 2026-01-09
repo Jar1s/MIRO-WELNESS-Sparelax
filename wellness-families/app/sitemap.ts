@@ -1,14 +1,14 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://wellnessheaven.sk'; // Update with actual domain
+  const baseUrl = 'https://www.wellnessheaven.sk';
   
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: 0.8,
     },
     {
       url: `${baseUrl}/o-nas`,
@@ -48,7 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
 
 
 

@@ -7,11 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://wellnessheaven.sk/sitemap.xml', // Update with actual domain
+    sitemap: 'https://www.wellnessheaven.sk/sitemap.xml',
   };
 }
-
-
 
 
 

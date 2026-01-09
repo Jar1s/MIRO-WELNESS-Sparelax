@@ -1,10 +1,16 @@
 import Link from 'next/link';
 
 const pricing = [
-  { duration: '60 min', price: '50 €' },
-  { duration: '90 min', price: '60 €' },
-  { duration: '120 min', price: '70 €' },
-  { duration: '180 min', price: '120 €' },
+  { title: 'Izba', duration: '120 min', price: '80 €' },
+  { title: 'Wellness bez izby', duration: '120 min', price: '100 €' },
+  { title: 'Komplet', duration: '120 min', price: '150 €' },
+  { title: 'Komplet', duration: '180 min', price: '200 €' },
+  { title: 'Komplet', duration: '240 min', price: '250 €' },
+  { title: 'Celá noc 2 os', duration: '9 h', price: '200 €' },
+  { title: 'Celá noc 4 os', duration: '9 h', price: '300 €' },
+  { title: 'Celá noc 6 os', duration: '9 h', price: '400 €' },
+  { title: 'Celá noc party', duration: '9 h', price: '500 €' },
+  { title: 'Izba', duration: '60 min', price: '50 €' },
 ];
 
 export default function CennikPage() {
@@ -21,7 +27,7 @@ export default function CennikPage() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 border border-[#e8e6e3] text-center">
             <p className="text-[#6b6b6b] text-base sm:text-lg leading-relaxed">
-              <strong className="text-[#2c2c2c]">Privátny wellness č.1</strong> — zapožičanie plachty a uteráku v cene.
+              Zapožičanie plachty a uteráku v cene.
               Osušku a župan vám radi zapožičiame za 1,5€, resp. 2,5€.
             </p>
           </div>
@@ -30,7 +36,10 @@ export default function CennikPage() {
             <ul className="divide-y divide-[#e8e6e3]">
               {pricing.map((item, index) => (
                 <li key={index} className="py-4 sm:py-5 flex items-center justify-between">
-                  <div className="text-lg sm:text-xl font-display text-[#2c2c2c]">{item.duration}</div>
+                  <div className="text-left">
+                    <div className="text-lg sm:text-xl font-display text-[#2c2c2c]">{item.title}</div>
+                    <p className="text-[#6b6b6b] text-sm sm:text-base">{item.duration}</p>
+                  </div>
                   <div className="text-2xl sm:text-3xl font-display font-bold text-[#c97d60]">{item.price}</div>
                 </li>
               ))}

@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: 'Privátny Wellness',
-    description: 'Navštívte našu wellness časť, zrelaxujte telo, oddýchnite si od stresu a načerpajte novú energiu.',
+    title: 'Privátna vírivka',
+    description: 'Užite si súkromnú vírivku, zrelaxujte telo a nechajte stres odplávať. Čisté a privátne prostredie pre dokonalý oddych.',
     image: '/images/new-photos/photo-01.jpg',
     features: [
       'Súkromný priestor',
-      'Vírivka',
+      'Vírivka len pre vás',
       'Relaxačné zóny',
       'Privátne prostredie',
     ],
