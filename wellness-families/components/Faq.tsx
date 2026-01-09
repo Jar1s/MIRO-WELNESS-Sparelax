@@ -70,7 +70,7 @@ export default function Faq() {
 
   return (
     <section className="py-16 sm:py-20 md:py-24 bg-[#faf9f7]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-3xl sm:max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10">
           <p className="text-[#c97d60] uppercase tracking-[0.24em] text-xs sm:text-sm font-semibold mb-3">
             FAQ
