@@ -92,7 +92,7 @@ export default function Faq() {
                 className="bg-white/90 backdrop-blur border border-[#ebe6df] rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden"
               >
                 <button
-                  className="w-full flex items-center justify-between gap-3 sm:gap-4 text-left px-5 sm:px-6 py-6 sm:py-7"
+                  className="w-full flex items-center justify-between gap-3 sm:gap-4 text-left px-5 sm:px-6 py-7 sm:py-8"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
                 >
@@ -105,7 +105,7 @@ export default function Faq() {
                 </button>
                 {isOpen && (
                   <div className="px-5 sm:px-6 pb-7 sm:pb-8 pt-0 border-t border-[#f1ebe4]">
-                    <div className="text-sm sm:text-base text-[#5b5b5b] leading-relaxed text-center flex items-center justify-center min-h-[84px]">
+                    <div className="text-sm sm:text-base text-[#5b5b5b] leading-relaxed text-center flex items-center justify-center py-4 sm:py-5">
                       {faq.answer}
                     </div>
                   </div>
