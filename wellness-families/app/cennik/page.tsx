@@ -1,19 +1,25 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const pricing = [
-  { title: 'Izba', duration: '120 min', price: '80 €' },
-  { title: 'Wellness bez izby', duration: '120 min', price: '100 €' },
-  { title: 'Komplet', duration: '120 min', price: '150 €' },
-  { title: 'Komplet', duration: '180 min', price: '200 €' },
-  { title: 'Komplet', duration: '240 min', price: '250 €' },
-  { title: 'Celá noc 2 os', duration: '9 h', price: '200 €' },
-  { title: 'Celá noc 4 os', duration: '9 h', price: '300 €' },
-  { title: 'Celá noc 6 os', duration: '9 h', price: '400 €' },
-  { title: 'Celá noc party', duration: '9 h', price: '500 €' },
-  { title: 'Izba', duration: '60 min', price: '50 €' },
+  { title: 'Izba', duration: '120 min', price: '80 €', image: '/images/Photo 5.png' },
+  { title: 'Wellness bez izby', duration: '120 min', price: '100 €', image: '/images/Photo 1.png' },
+  { title: 'Komplet', duration: '120 min', price: '150 €', image: '/images/Photo 12.png' },
+  { title: 'Komplet', duration: '180 min', price: '200 €', image: '/images/Photo 2.png' },
+  { title: 'Komplet', duration: '240 min', price: '250 €', image: '/images/Photo 3.png' },
+  { title: 'Celá noc 2 os', duration: '9 h', price: '200 €', image: '/images/Photo 9.jpg' },
+  { title: 'Celá noc 4 os', duration: '9 h', price: '300 €', image: '/images/Photo 9.jpg' },
+  { title: 'Celá noc 6 os', duration: '9 h', price: '400 €', image: '/images/Photo 9.jpg' },
+  { title: 'Celá noc party', duration: '9 h', price: '500 €', image: '/images/Photo 9.jpg' },
+  { title: 'Izba', duration: '60 min', price: '50 €', image: '/images/Photo 4.png' },
 ];
 
 export default function CennikPage() {
+  const bookiaLink =
+    process.env.NEXT_PUBLIC_BOOKIA_ID && process.env.NEXT_PUBLIC_BOOKIA_ID !== 'YOUR_BOOKIA_ID'
+      ? `https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID}`
+      : '#';
+
   return (
     <div className="pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 md:pb-24 lg:pb-32 bg-[#faf9f7] min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,33 +38,41 @@ export default function CennikPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 border border-[#e8e6e3]">
-            <ul className="divide-y divide-[#e8e6e3]">
-              {pricing.map((item, index) => (
-                <li key={index} className="py-4 sm:py-5 flex items-center justify-between">
-                  <div className="text-left">
-                    <div className="text-lg sm:text-xl font-display text-[#2c2c2c]">{item.title}</div>
-                    <p className="text-[#6b6b6b] text-sm sm:text-base">{item.duration}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {pricing.map((item, index) => (
+              <div
+                key={`${item.title}-${index}`}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden border border-[#e8e6e3] flex flex-col"
+              >
+                <div className="relative h-48 sm:h-56 w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority={index < 2}
+                  />
+                </div>
+                <div className="p-6 sm:p-7 flex flex-col flex-1">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-display font-bold text-[#2c2c2c]">{item.title}</h3>
+                    <span className="text-sm text-[#6b6b6b]">{item.duration}</span>
                   </div>
-                  <div className="text-2xl sm:text-3xl font-display font-bold text-[#6bb8ff]">{item.price}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="text-center flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center mt-10">
-            <Link
-              href="/rezervacia"
-              className="inline-block bg-[#6bb8ff] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
-            >
-              Rezervovať teraz
-            </Link>
-            <Link
-              href="/kontakt"
-              className="inline-block bg-transparent text-[#2c2c2c] px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#f5f3f0] transition-all border-2 border-[#2c2c2c] min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
-            >
-              Kontaktovať nás
-            </Link>
+                  <div className="text-3xl font-display font-bold text-[#6bb8ff] mb-4">{item.price}</div>
+                  <div className="mt-auto">
+                    <Link
+                      href={bookiaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block w-full bg-[#6bb8ff] text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-[#4d9be0] transition-all shadow-md hover:shadow-lg hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation"
+                    >
+                      Rezervovať
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
