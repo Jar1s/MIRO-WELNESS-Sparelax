@@ -59,7 +59,7 @@ export default function CennikPage() {
                     <h3 className="text-xl font-display font-bold text-[#2c2c2c]">{item.title}</h3>
                     <span className="text-sm text-[#6b6b6b]">{item.duration}</span>
                   </div>
-                  <div className="text-3xl font-display font-bold text-[#6bb8ff] mb-4">{item.price}</div>
+                  <div className="text-3xl font-display font-bold text-[#6bb8ff] mb-4 text-center">{item.price}</div>
                   <div className="mt-auto">
                     <Link
                       href={bookiaLink}
