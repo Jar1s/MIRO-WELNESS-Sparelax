@@ -53,6 +53,17 @@ const services = [
       'Skúsení maséri',
     ],
   },
+  {
+    title: 'Celá noc party',
+    description: 'Zažite celú noc v súkromnom wellness so svojou partiou. Vírivka, sauna a relax zóny len pre vás.',
+    image: '/images/Photo 9.jpg',
+    features: [
+      'Súkromný prenájom na noc',
+      'Vírivka a sauna',
+      'Priestor pre skupiny',
+      'Dispozícia len pre vás',
+    ],
+  },
 ];
 
 export default function SluzbyPage() {
