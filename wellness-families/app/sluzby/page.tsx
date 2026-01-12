@@ -88,7 +88,8 @@ export default function SluzbyPage() {
                     alt={service.title}
                     fill
                     className="object-cover object-center w-full h-full"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                   />
                 </div>
                 <div className="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">

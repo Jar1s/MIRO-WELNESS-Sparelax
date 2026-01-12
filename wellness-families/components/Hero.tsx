@@ -71,6 +71,7 @@ export default function Hero() {
           className="object-cover"
           priority
           sizes="100vw"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-[#faf9f7]/92"></div>
       </div>
@@ -86,6 +87,7 @@ export default function Hero() {
             showVideo ? 'opacity-0' : 'opacity-100'
           }`}
           priority
+          loading="eager"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
         
