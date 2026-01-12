@@ -29,7 +29,7 @@ export default function RezervaciaPage() {
           </p>
           <div className="space-y-3 text-[#2c2c2c] text-base sm:text-lg">
             <p className="font-semibold">Email: <a className="text-[#6bb8ff] hover:text-[#4d9be0]" href="mailto:wellnessheavensk@gmail.com">wellnessheavensk@gmail.com</a></p>
-            <p className="text-[#6b6b6b]">Adresa: Tomášikova, 821 01 Bratislava</p>
+            <p className="text-[#6b6b6b]">Adresa: Tomášikova 26, 821 01 Bratislava</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4">
             <Link

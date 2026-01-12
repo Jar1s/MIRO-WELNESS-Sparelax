@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="space-y-3 tracking-wide">
             <h4 className="text-base sm:text-lg font-display font-semibold text-white">Kontakt</h4>
             <div className="text-white/70 text-sm sm:text-base space-y-2">
-              <p>Tomášikova</p>
+              <p>Tomášikova 26</p>
               <p>821 01 Bratislava</p>
               <p>
                 <a href="mailto:wellnessheavensk@gmail.com" className="hover:text-[#6bb8ff] transition-colors break-all">

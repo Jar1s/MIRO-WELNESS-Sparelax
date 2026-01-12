@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Kontakt - Wellness Heaven | Kontaktné informácie',
-  description: 'Kontaktujte nás na adrese Tomášikova, 821 01 Bratislava. Otváracie hodiny: Po-Pi 11:00-22:00, So-Ne 10:00-22:00.',
+  description: 'Kontaktujte nás na adrese Tomášikova 26, 821 01 Bratislava. Otváracie hodiny: Po-Pi 11:00-22:00, So-Ne 10:00-22:00.',
 };
 
 export default function KontaktPage() {
@@ -30,7 +30,7 @@ export default function KontaktPage() {
             <div className="space-y-4 sm:space-y-6">
               <div className="space-y-2">
                 <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">Adresa</p>
-                <p className="text-[#6b6b6b] text-sm sm:text-base">Tomášikova</p>
+                <p className="text-[#6b6b6b] text-sm sm:text-base">Tomášikova 26</p>
                 <p className="text-[#6b6b6b] text-sm sm:text-base">821 01 Bratislava</p>
                 <p className="text-[#9b9b9b] text-xs sm:text-sm mt-1">GPS: 48.163154, 17.157358</p>
               </div>

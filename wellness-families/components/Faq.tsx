@@ -31,7 +31,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Môžem prísť autom? Kde môžem parkovať?',
     answer:
-      'Parkovať môžete v okolí prevádzky na verejných miestach (Tomášikova/Ružinov). Odporúčame prísť o pár minút skôr, aby ste si našli miesto.',
+      'Parkovať môžete v okolí prevádzky na verejných miestach (Tomášikova 26 / Ružinov). Odporúčame prísť o pár minút skôr, aby ste si našli miesto.',
   },
   {
     question: 'Je v priestoroch internet?',
