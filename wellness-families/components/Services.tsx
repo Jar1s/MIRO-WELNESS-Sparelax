@@ -63,7 +63,8 @@ export default function Services() {
                     index === 0 ? 'scale-[1.12] group-hover:scale-[1.18]' : 'group-hover:scale-110'
                   }`}
                   style={index === 0 ? { objectPosition: 'center' } : undefined}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                  loading={index === 0 ? 'eager' : 'lazy'}
                   priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>

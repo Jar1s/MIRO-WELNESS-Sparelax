@@ -50,7 +50,8 @@ export default function CennikPage() {
                     alt={item.title}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                    loading={index < 2 ? 'eager' : 'lazy'}
                     priority={index < 2}
                   />
                 </div>
