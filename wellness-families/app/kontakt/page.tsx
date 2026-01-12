@@ -32,7 +32,7 @@ export default function KontaktPage() {
                 <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">Adresa</p>
                 <p className="text-[#6b6b6b] text-sm sm:text-base">Tomášikova 26</p>
                 <p className="text-[#6b6b6b] text-sm sm:text-base">821 01 Bratislava</p>
-                <p className="text-[#9b9b9b] text-xs sm:text-sm mt-1">GPS: 48.163154, 17.157358</p>
+                <p className="text-[#9b9b9b] text-xs sm:text-sm mt-1">GPS: 48.16305153436385, 17.158939429418787</p>
               </div>
               
               <div className="space-y-2">
@@ -69,7 +69,7 @@ export default function KontaktPage() {
             </h2>
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
               <iframe
-                src="https://www.google.com/maps?q=48.163154,17.157358&output=embed"
+                src="https://www.google.com/maps?q=48.16305153436385,17.158939429418787&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -82,7 +82,7 @@ export default function KontaktPage() {
             </div>
             <div className="p-6 sm:p-8 md:p-10 pt-4 sm:pt-6">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=48.163154,17.157358"
+                href="https://www.google.com/maps/search/?api=1&query=48.16305153436385,17.158939429418787"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-[#6bb8ff] hover:text-[#4d9be0] transition-colors font-medium text-sm sm:text-base min-h-[44px] touch-manipulation"
