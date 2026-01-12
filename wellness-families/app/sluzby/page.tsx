@@ -56,7 +56,7 @@ const services = [
   {
     title: 'Celá noc party',
     description: 'Zažite celú noc v súkromnom wellness so svojou partiou. Vírivka, sauna a relax zóny len pre vás.',
-    image: '/images/Photo 9.jpg',
+    image: '/images/new-photos/photo-14.jpg',
     features: [
       'Súkromný prenájom na noc',
       'Vírivka a sauna',
