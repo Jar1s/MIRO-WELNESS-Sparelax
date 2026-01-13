@@ -42,9 +42,12 @@ export default function Home() {
               </p>
               <Link
                 href="/o-nas"
-                className="inline-block text-[#6bb8ff] font-semibold hover:text-[#4d9be0] transition-colors border-b-2 border-[#6bb8ff] pb-1 min-h-[44px] flex items-center touch-manipulation"
+                className="block text-left"
               >
-                Zistiť viac →
+                <span className="inline-flex items-center gap-2 text-[#2c2c2c] hover:text-[#4d9be0] transition-colors font-semibold min-h-[44px]">
+                  Zistiť viac →
+                </span>
+                <div className="mt-2 h-0.5 w-full max-w-xl bg-[#6bb8ff]"></div>
               </Link>
             </div>
           </div>
@@ -72,9 +75,12 @@ export default function Home() {
               </p>
               <Link
                 href="/cennik"
-                className="inline-flex items-center gap-2 text-[#2c2c2c] hover:text-[#4d9be0] border-b-2 border-[#6bb8ff] pb-1 font-semibold transition-colors min-h-[44px]"
+                className="block text-left"
               >
-                Zistiť viac →
+                <span className="inline-flex items-center gap-2 text-[#2c2c2c] hover:text-[#4d9be0] transition-colors font-semibold min-h-[44px]">
+                  Zistiť viac →
+                </span>
+                <div className="mt-2 h-0.5 w-full max-w-xl bg-[#6bb8ff]"></div>
               </Link>
             </div>
             <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
