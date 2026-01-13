@@ -51,6 +51,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Party Night Section */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
+            <div className="order-2 lg:order-1">
+              <p className="text-[#6bb8ff] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
+                Party noc
+              </p>
+              <h2 className="text-3xl sm:4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
+                Noc len pre vašu <span className="text-[#6bb8ff]">partiu</span>
+              </h2>
+              <div className="w-24 h-1 bg-[#6bb8ff] mb-6 sm:mb-8"></div>
+              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-4 sm:mb-6">
+                Súkromná vírivka, sauna a relax zóna len pre vás – ideálne pre narodeniny, rozlúčku so slobodou
+                alebo večer s priateľmi. Žiadni cudzí hostia, len vaša atmosféra.
+              </p>
+              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-6 sm:mb-8">
+                Radi pripravíme priestor, poradíme s občerstvením a hudbou. Užite si celú noc bez časového stresu.
+              </p>
+              <Link
+                href="/cennik"
+                className="inline-block bg-[#6bb8ff] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation"
+              >
+                Rezervovať party noc
+              </Link>
+            </div>
+            <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/Photo 14.png"
+                alt="Party noc vo wellness"
+                fill
+                className="object-cover"
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Services />
       
       {/* Gift Vouchers Section - Elegant */}
