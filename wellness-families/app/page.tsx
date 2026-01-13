@@ -22,24 +22,24 @@ export default function Home() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               />
             </div>
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
               <p className="text-[#6bb8ff] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
                 O nás
               </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c]">
                 Kam v Bratislave za{' '}
                 <span className="text-[#6bb8ff] underline underline-offset-8 decoration-[#6bb8ff] decoration-4">
                   oddychom
                 </span>
               </h2>
               <div className="hidden lg:block w-24 h-1 bg-[#6bb8ff] mb-6 sm:mb-8 mx-auto lg:mx-0"></div>
-              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
                 Ponúkame súkromný wellness pre dvoch alebo partiu priateľov. Nie sme ako ostatné 
                 hromadné alebo hotelové wellness. Sme privátny wellness kde sa 
                 zameriavame na každého jednotlivého zákazníka behom procedúr ako 
                 saunovanie, masáže alebo kúpanie vo vírivke.
               </p>
-              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
                 Sme súkromný wellness, kde nestretnete hromadu ľudí, ale stredom 
                 pozornosti budete iba Vy!
               </p>
@@ -58,7 +58,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-            <div className="order-2 lg:order-1 text-center lg:text-left">
+            <div className="order-2 lg:order-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
               <p className="text-[#6bb8ff] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
                 Party noc
               </p>
@@ -66,11 +66,11 @@ export default function Home() {
                 Noc len pre vašu <span className="text-[#6bb8ff]">partiu</span>
               </h2>
               <div className="hidden lg:block w-24 h-1 bg-[#6bb8ff] mb-6 sm:mb-8 mx-auto lg:mx-0"></div>
-              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-4 sm:mb-6">
+              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
                 Súkromná vírivka, sauna a relax zóna len pre vás – ideálne pre narodeniny, rozlúčku so slobodou
                 alebo večer s priateľmi. Žiadni cudzí hostia, len vaša atmosféra.
               </p>
-              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
                 Radi pripravíme priestor, poradíme s občerstvením a hudbou. Užite si celú noc bez časového stresu.
               </p>
               <Link
