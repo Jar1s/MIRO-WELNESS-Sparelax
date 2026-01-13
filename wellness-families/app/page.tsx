@@ -63,7 +63,10 @@ export default function Home() {
                 Party noc
               </p>
               <h2 className="text-3xl sm:4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
-                Noc len pre vašu <span className="text-[#6bb8ff]">partiu</span>
+                Noc len pre vašu{' '}
+                <span className="text-[#6bb8ff] underline underline-offset-8 decoration-[#6bb8ff] decoration-4">
+                  partiu
+                </span>
               </h2>
               <div className="hidden lg:block w-24 h-1 bg-[#6bb8ff] mb-6 sm:mb-8 mx-auto lg:mx-0"></div>
               <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
