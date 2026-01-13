@@ -32,7 +32,6 @@ export default function Home() {
                   oddychom
                 </span>
               </h2>
-              <div className="hidden lg:block w-24 h-1 bg-[#6bb8ff] mb-6 sm:mb-8 mx-auto lg:mx-0"></div>
               <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
                 Ponúkame súkromný wellness pre dvoch alebo partiu priateľov. Nie sme ako ostatné 
                 hromadné alebo hotelové wellness. Sme privátny wellness kde sa 
@@ -68,7 +67,6 @@ export default function Home() {
                   partiu
                 </span>
               </h2>
-              <div className="hidden lg:block w-24 h-1 bg-[#6bb8ff] mb-6 sm:mb-8 mx-auto lg:mx-0"></div>
               <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
                 Súkromná vírivka, sauna a relax zóna len pre vás – ideálne pre narodeniny, rozlúčku so slobodou
                 alebo večer s priateľmi. Žiadni cudzí hostia, len vaša atmosféra.
