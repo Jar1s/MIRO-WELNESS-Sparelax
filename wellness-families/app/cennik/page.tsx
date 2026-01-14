@@ -2,17 +2,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const pricing = [
-  { title: 'PRÍVATNÁ IZBA (2os / 1izba)', duration: '120 minút', price: '80 €', image: '/images/Photo 3.png' },
-  { title: 'PRIVÁTNE IZBY (4os / 2 izby)', duration: '120 minút', price: '140 €', image: '/images/Photo 11.png' },
-  { title: 'PRIVÁTNE IZBY (6os / 3 izby)', duration: '120 minút', price: '180 €', image: '/images/Photo 12.png' },
+  { title: 'PRÍVATNÁ IZBA', subtitle: '2 osoby • 1 izba', duration: '120 minút', price: '80 €', image: '/images/Photo 3.png' },
+  { title: 'PRIVÁTNE IZBY', subtitle: '4 osoby • 2 izby', duration: '120 minút', price: '140 €', image: '/images/Photo 11.png' },
+  { title: 'PRIVÁTNE IZBY', subtitle: '6 osôb • 3 izby', duration: '120 minút', price: '180 €', image: '/images/Photo 12.png' },
   { title: 'PRIVÁTNY WELLNESS BEZ IZBY', duration: '120 minút', price: '100 €', image: '/images/Photo 12.png' },
-  { title: 'PRIVÁTNY WELLNESS S IZBAMI 2os', duration: '120 minút', price: '150 €', image: '/images/Photo 11.png' },
-  { title: 'PRIVÁTNY WELLNESS S IZBAMI 2os', duration: '180 minút', price: '200 €', image: '/images/Photo 11.png' },
-  { title: 'PRIVÁTNY WELLNESS S IZBAMI 2os', duration: '240 minút', price: '250 €', image: '/images/Photo 11.png' },
-  { title: 'WELLNESS ALL NIGHT 2osoby', duration: '9 hodín', price: '200 €', image: '/images/Photo 9.jpg' },
-  { title: 'WELLNESS ALL NIGHT 4osoby', duration: '9 hodín', price: '300 €', image: '/images/Photo 16.png' },
-  { title: 'WELLNESS ALL NIGHT 6osob', duration: '9 hodín', price: '400 €', image: '/images/Photo 15.png' },
-  { title: 'WELLNESS ALL NIGHT PARTY 12osob', duration: '9 hodín', price: '500 €', image: '/images/Photo 14.png' },
+  { title: 'PRIVÁTNY WELLNESS S IZBAMI', subtitle: '2 osoby', duration: '120 minút', price: '150 €', image: '/images/Photo 11.png' },
+  { title: 'PRIVÁTNY WELLNESS S IZBAMI', subtitle: '2 osoby', duration: '180 minút', price: '200 €', image: '/images/Photo 11.png' },
+  { title: 'PRIVÁTNY WELLNESS S IZBAMI', subtitle: '2 osoby', duration: '240 minút', price: '250 €', image: '/images/Photo 11.png' },
+  { title: 'WELLNESS ALL NIGHT', subtitle: '2 osoby', duration: '9 hodín', price: '200 €', image: '/images/Photo 9.jpg' },
+  { title: 'WELLNESS ALL NIGHT', subtitle: '4 osoby', duration: '9 hodín', price: '300 €', image: '/images/Photo 16.png' },
+  { title: 'WELLNESS ALL NIGHT', subtitle: '6 osôb', duration: '9 hodín', price: '400 €', image: '/images/Photo 15.png' },
+  { title: 'WELLNESS ALL NIGHT PARTY', subtitle: '12 osôb', duration: '9 hodín', price: '500 €', image: '/images/Photo 14.png' },
   { title: 'PRIVÁTNA SAUNA', duration: '120 minút', price: '80 €', image: '/images/Photo 4.png' },
   { title: 'PRIVÁTNA SAUNA', duration: '60 minút', price: '60 €', image: '/images/Photo 4.png' },
 ];
@@ -59,9 +59,12 @@ export default function CennikPage() {
                   />
                 </div>
                 <div className="p-6 sm:p-7 flex flex-col flex-1">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-display font-bold text-[#2c2c2c]">{item.title}</h3>
-                    <span className="text-sm text-[#6b6b6b]">{item.duration}</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div>
+                      <h3 className="text-xl font-display font-bold text-[#2c2c2c]">{item.title}</h3>
+                      {item.subtitle && <p className="text-sm text-[#6b6b6b]">{item.subtitle}</p>}
+                    </div>
+                    <span className="text-sm text-[#6b6b6b] whitespace-nowrap">{item.duration}</span>
                   </div>
                   <div className="text-3xl font-display font-bold text-[#6bb8ff] mb-4 text-center">{item.price}</div>
                   <div className="mt-auto">
