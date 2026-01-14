@@ -55,7 +55,7 @@ export default function CennikPage() {
                     priority={index < 2}
                   />
                 </div>
-                <div className="p-6 sm:p-7 flex flex-col flex-1 gap-4">
+                <div className="p-6 sm:p-7 flex flex-col flex-1 gap-3">
                   <div className="flex items-start justify-between gap-3">
                     <div className="space-y-1 min-h-[60px] flex flex-col justify-start">
                       <h3 className="text-xl font-display font-bold text-[#2c2c2c]">{item.title}</h3>
