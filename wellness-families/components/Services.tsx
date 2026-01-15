@@ -26,7 +26,7 @@ const services: Service[] = [
   {
     title: 'Uvoľnenie pri masáži',
     description: 'Nechajte si chvíľku iba pre seba a doprajte si masáž, uvoľnite stuhnuté svaly a zrelaxujte telo. Vyberte si niektorú z našich masáži, ktoré Vám ponúkame.',
-    image: '/images/Photo 13.png',
+    image: '/images/Photo 19.png',
   },
 ];
 
