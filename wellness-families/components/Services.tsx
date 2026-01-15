@@ -31,6 +31,14 @@ const services: Service[] = [
 ];
 
 export default function Services() {
+  const slugify = (text: string) =>
+    text
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9\-]/g, '')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,9 +55,10 @@ export default function Services() {
         {/* Asymmetric Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-12 sm:mb-16 md:mb-20">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-black ${
+              href={`/sluzby#${slugify(service.title)}`}
+              className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-black block ${
                 index % 2 === 0 ? 'lg:mt-0' : 'lg:mt-8 xl:mt-16'
               }`}
             >
@@ -80,7 +89,7 @@ export default function Services() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         

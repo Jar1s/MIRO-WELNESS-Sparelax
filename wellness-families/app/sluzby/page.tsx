@@ -67,10 +67,7 @@ const services = [
 ];
 
 export default function SluzbyPage() {
-  const bookiaLink =
-    process.env.NEXT_PUBLIC_BOOKIA_ID && process.env.NEXT_PUBLIC_BOOKIA_ID !== 'YOUR_BOOKIA_ID'
-      ? `https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID}`
-      : '#';
+  const bookiaLink = 'https://services.bookio.com/wellness-heaven/widget?lang=sk';
 
   return (
     <div className="pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 md:pb-24 lg:pb-32 bg-[#faf9f7] min-h-screen">
@@ -85,11 +82,12 @@ export default function SluzbyPage() {
         <div className="space-y-12 sm:space-y-16 mb-12 sm:mb-16">
           {services.map((service, index) => (
             <div
-              key={index}
-              className={`bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden ${
-                index % 2 === 0 ? '' : 'md:flex-row-reverse'
-              }`}
-            >
+                key={index}
+                className={`bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden ${
+                  index % 2 === 0 ? '' : 'md:flex-row-reverse'
+                }`}
+                id={service.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '')}
+              >
               <div className={`grid grid-cols-1 md:grid-cols-2 gap-0 ${
                 index % 2 === 0 ? '' : 'md:flex-row-reverse'
               }`}>
