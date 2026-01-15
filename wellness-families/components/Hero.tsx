@@ -152,7 +152,9 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
-              href="/rezervacia"
+              href="https://services.bookio.com/wellness-heaven/widget?lang=sk"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#6bb8ff] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-center min-h-[44px] flex items-center justify-center touch-manipulation"
             >
               Rezervovať vstup
