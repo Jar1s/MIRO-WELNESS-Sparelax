@@ -12,7 +12,7 @@ const services = [
   {
     title: 'Privátna vírivka',
     description: 'Užite si súkromnú vírivku, zrelaxujte telo a nechajte stres odplávať. Čisté a privátne prostredie pre dokonalý oddych.',
-    image: '/images/new-photos/photo-01.jpg',
+    image: '/images/Photo 20.png',
     features: [
       'Súkromný priestor',
       'Vírivka len pre vás',
