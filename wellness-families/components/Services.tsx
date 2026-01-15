@@ -11,7 +11,7 @@ const services: Service[] = [
   {
     title: 'Privátny Wellness',
     description: 'Navštívte našu wellness časť, zrelaxujte telo, oddýchnite si od stresu a načerpajte novú energiu.',
-    image: '/images/Photo 12.png',
+    image: '/images/Photo 15.png',
   },
   {
     title: 'Privátna sauna',
