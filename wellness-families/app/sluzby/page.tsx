@@ -34,7 +34,7 @@ const services = [
   {
     title: 'Relaxačná miestnosť',
     description: 'Vstúpte do priestoru pokoja, kde sa zastavuje čas. Relaxačná miestnosť je ideálnym miestom na odpočinok po saune, masáži alebo náročnom dni.',
-    image: '/images/photo-3.png',
+    image: '/images/Photo 17.png',
     features: [
       'Pohodlné ležadlá',
       'Tichá zóna',
