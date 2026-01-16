@@ -23,7 +23,7 @@ const services = [
   {
     title: 'Privátna sauna',
     description: 'Doprajte si nerušený relax v našej súkromnej fínskej saune, ktorá ponúka ideálne podmienky na regeneráciu tela aj mysle.',
-    image: '/images/photo-4.png',
+    image: '/images/Photo 18.png',
     features: [
       'Fínska sauna',
       'Súkromný priestor',
