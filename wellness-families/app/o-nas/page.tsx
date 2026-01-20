@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'O nás - Wellness Heaven | Privátny Wellness Bratislava',
-  description: 'Poznajte Wellness Heaven – súkromný wellness v Bratislave. Súkromné prostredie, individuálny prístup a profesionálny personál.',
+  title: 'O nás - Spa-Relax Bratislava | Privátny Wellness Bratislava',
+  description: 'Poznajte Spa-Relax Bratislava – súkromný wellness v Bratislave. Súkromné prostredie, individuálny prístup a profesionálny personál.',
 };
 
 export default function ONasPage() {
@@ -13,9 +13,9 @@ export default function ONasPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
-              Poznajte Wellness Heaven
+              Poznajte Spa-Relax Bratislava
             </h1>
-            <div className="w-24 h-1 bg-[#6bb8ff] mx-auto"></div>
+            <div className="w-24 h-1 bg-[#CD7F32] mx-auto"></div>
           </div>
 
           <div className="space-y-8 sm:space-y-12">
@@ -25,7 +25,7 @@ export default function ONasPage() {
               </h2>
               <div className="space-y-4 sm:space-y-6">
                 <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
-                  Vitajte v Wellness Heaven – súkromnom wellness centre v Bratislave. 
+                  Vitajte v Spa-Relax Bratislava – súkromnom wellness centre v Bratislave. 
                   Ponúkame súkromný wellness pre dvoch alebo partiu priateľov. 
                   Nie sme ako ostatné hromadné alebo hotelové wellness.
                 </p>
@@ -64,7 +64,7 @@ export default function ONasPage() {
             <div className="text-center pt-8">
               <Link
                 href="/rezervacia"
-                className="inline-block bg-[#6bb8ff] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+                className="inline-block bg-[#CD7F32] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105"
               >
                 Rezervovať návštevu
               </Link>

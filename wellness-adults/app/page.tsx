@@ -12,7 +12,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden opacity-10">
           <div className="absolute top-10 left-10 w-64 h-64">
             <Image
-              src="/images/gallery-3.jpg"
+              src="/images/Photo 3.png"
               alt=""
               fill
               className="object-cover rounded-full"
@@ -20,7 +20,7 @@ export default function Home() {
           </div>
           <div className="absolute bottom-10 right-10 w-64 h-64">
             <Image
-              src="/images/gallery-4.jpg"
+              src="/images/Photo 4.png"
               alt=""
               fill
               className="object-cover rounded-full"
@@ -30,7 +30,7 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Kam v Bratislave za <em className="text-purple-600">oddychom</em>
+              Kam v Bratislave za <em className="text-[#CD7F32]">oddychom</em>
             </h2>
             <h3 className="text-3xl font-semibold text-gray-800 mb-4">
               Wellness Bratislava
@@ -51,22 +51,22 @@ export default function Home() {
       <Services />
       
       {/* Gift Vouchers Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
+      <section className="py-20 bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-white mb-4">
               Venujte svojim blízkym
             </h2>
-            <h3 className="text-3xl font-semibold text-purple-600 mb-6">
+            <h3 className="text-3xl font-semibold text-[#CD7F32] mb-6">
               oddych
             </h3>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-200 mb-8 leading-relaxed">
               Darujte im niektorú zo širokej možností našich darčekových poukážok. 
               Detaily zistíte u nás na recepcii.
             </p>
             <Link
               href="/kontakt"
-              className="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-700 transition shadow-lg"
+              className="inline-block bg-[#CD7F32] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#A0522D] transition shadow-lg"
             >
               Kontaktovať nás
             </Link>

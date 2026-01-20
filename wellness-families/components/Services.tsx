@@ -9,24 +9,19 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: 'Privátny Wellness',
-    description: 'Navštívte našu wellness časť, zrelaxujte telo, oddýchnite si od stresu a načerpajte novú energiu.',
-    image: '/images/Photo 15.png',
+    title: 'Privátny wellness č.1',
+    description: 'Súkromný wellness priestor. Dĺžka 60-180 min, od 50 €.',
+    image: '/images/image.png',
   },
   {
-    title: 'Privátna sauna',
-    description: 'Doprajte si nerušený relax v našej súkromnej fínskej saune, ktorá ponúka ideálne podmienky na regeneráciu tela aj mysle.',
-    image: '/images/Photo 16.png',
+    title: 'Privátny wellness č.2',
+    description: 'Druhý privátny wellness priestor. Dĺžka 60-180 min, od 50 €.',
+    image: '/images/image 2.png',
   },
   {
-    title: 'Relaxačná miestnosť',
-    description: 'Vstúpte do priestoru pokoja, kde sa zastavuje čas. Relaxačná miestnosť je ideálnym miestom na odpočinok po saune, masáži alebo náročnom dni.',
-    image: '/images/Photo 21.png',
-  },
-  {
-    title: 'Uvoľnenie pri masáži',
-    description: 'Nechajte si chvíľku iba pre seba a doprajte si masáž, uvoľnite stuhnuté svaly a zrelaxujte telo. Vyberte si niektorú z našich masáži, ktoré Vám ponúkame.',
-    image: '/images/Photo 19.png',
+    title: 'Masáž',
+    description: 'Uvoľňujúca masáž 50 min za 35 €.',
+    image: '/images/image 5.png',
   },
 ];
 
@@ -35,13 +30,13 @@ export default function Services() {
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <p className="text-[#6bb8ff] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
+          <p className="text-[#CD7F32] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
             Naše služby
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
             Služby, ktoré vám ponúkame
           </h2>
-          <div className="w-24 h-1 bg-[#6bb8ff] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#CD7F32] mx-auto"></div>
         </div>
         
         {/* Asymmetric Grid Layout */}
@@ -76,7 +71,7 @@ export default function Services() {
                     <p className="text-white/90 leading-relaxed text-base sm:text-lg mb-4 sm:mb-6">
                       {service.description}
                     </p>
-                    <div className="w-16 h-1 bg-[#6bb8ff] mx-auto lg:mx-0"></div>
+                    <div className="w-16 h-1 bg-[#CD7F32] mx-auto lg:mx-0"></div>
                   </div>
                 </div>
               </div>
@@ -87,7 +82,7 @@ export default function Services() {
         <div className="text-center">
           <Link
             href="/cennik"
-            className="inline-block bg-[#6bb8ff] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation"
+            className="inline-block bg-[#CD7F32] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation"
           >
             Zobraziť cenník
           </Link>

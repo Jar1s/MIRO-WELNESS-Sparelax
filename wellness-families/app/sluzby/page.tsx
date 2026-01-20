@@ -4,64 +4,39 @@ import Image from 'next/image';
 import Faq from '@/components/Faq';
 
 export const metadata: Metadata = {
-  title: 'Služby - Wellness Heaven | Wellness Bratislava',
-  description: 'Ponúkame privátny wellness, súkromnú saunu, relaxačnú miestnosť a masáže v Bratislave.',
+  title: 'Služby - Spa-Relax Bratislava | Wellness Bratislava',
+  description: 'Ponúkame privátny wellness č.1, privátny wellness č.2 a masáže v Bratislave.',
 };
 
 const services = [
   {
-    title: 'Privátna vírivka',
-    description: 'Užite si súkromnú vírivku, zrelaxujte telo a nechajte stres odplávať. Čisté a privátne prostredie pre dokonalý oddych.',
-    image: '/images/Photo 20.png',
+    title: 'Privátny wellness č.1',
+    description: 'Súkromný wellness priestor pre nerušený oddych a regeneráciu.',
+    image: '/images/image.png',
     features: [
-      'Súkromný priestor',
-      'Vírivka len pre vás',
-      'Relaxačné zóny',
-      'Privátne prostredie',
+      '60 min - 50 €',
+      '90 min - 60 €',
+      '120 min - 70 €',
+      '180 min - 120 €',
     ],
   },
   {
-    title: 'Privátna sauna',
-    description: 'Doprajte si nerušený relax v našej súkromnej fínskej saune, ktorá ponúka ideálne podmienky na regeneráciu tela aj mysle.',
-    image: '/images/Photo 18.png',
+    title: 'Privátny wellness č.2',
+    description: 'Druhý privátny wellness priestor s rovnakými možnosťami dĺžky pobytu.',
+    image: '/images/image 2.png',
     features: [
-      'Fínska sauna',
-      'Súkromný priestor',
-      'Ideálna teplota',
-      'Regeneračný efekt',
+      '60 min - 50 €',
+      '90 min - 60 €',
+      '120 min - 70 €',
+      '180 min - 120 €',
     ],
   },
   {
-    title: 'Relaxačná miestnosť',
-    description: 'Vstúpte do priestoru pokoja, kde sa zastavuje čas. Relaxačná miestnosť je ideálnym miestom na odpočinok po saune, masáži alebo náročnom dni.',
-    image: '/images/Photo 21.png',
+    title: 'Masáž',
+    description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
+    image: '/images/image 5.png',
     features: [
-      'Pohodlné ležadlá',
-      'Tichá zóna',
-      'Relaxačná atmosféra',
-      'Privátne prostredie',
-    ],
-  },
-  {
-    title: 'Uvoľnenie pri masáži',
-    description: 'Nechajte si chvíľku iba pre seba a doprajte si masáž, uvoľnite stuhnuté svaly a zrelaxujte telo. Vyberte si niektorú z našich masáži, ktoré Vám ponúkame.',
-    image: '/images/Photo 19.png',
-    features: [
-      'Relaxačné masáže',
-      'Terapeutické masáže',
-      'Aromaterapia',
-      'Skúsení maséri',
-    ],
-  },
-  {
-    title: 'Celá noc party',
-    description: 'Zažite celú noc v súkromnom wellness so svojou partiou. Vírivka, sauna a relax zóny len pre vás.',
-    image: '/images/Photo 14.png',
-    features: [
-      'Súkromný prenájom na noc',
-      'Vírivka a sauna',
-      'Priestor pre skupiny',
-      'Dispozícia len pre vás',
+      '50 min - 35 €',
     ],
   },
 ];
@@ -76,7 +51,7 @@ export default function SluzbyPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
             Služby, ktoré vám ponúkame
           </h1>
-          <div className="w-24 h-1 bg-[#6bb8ff] mx-auto"></div>
+          <div className="w-24 h-1 bg-[#CD7F32] mx-auto"></div>
         </div>
 
         <div className="space-y-12 sm:space-y-16 mb-12 sm:mb-16">
@@ -111,7 +86,7 @@ export default function SluzbyPage() {
                   <ul className="grid grid-cols-1 gap-3 sm:gap-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-[#2c2c2c]">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#6bb8ff] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#CD7F32] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                         <span className="font-medium text-sm sm:text-base">{feature}</span>
@@ -123,7 +98,7 @@ export default function SluzbyPage() {
                       href={bookiaLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block bg-[#6bb8ff] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-base font-semibold hover:bg-[#4d9be0] transition-all shadow-md hover:shadow-lg hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
+                      className="inline-block bg-[#CD7F32] text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-base font-semibold hover:bg-[#A0522D] transition-all shadow-md hover:shadow-lg hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
                     >
                       Rezervovať
                     </Link>
@@ -137,7 +112,7 @@ export default function SluzbyPage() {
         <div className="text-center flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <Link
             href="/cennik"
-            className="inline-block bg-[#6bb8ff] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
+            className="inline-block bg-[#CD7F32] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation w-full sm:w-auto"
           >
             Zobraziť cenník
           </Link>

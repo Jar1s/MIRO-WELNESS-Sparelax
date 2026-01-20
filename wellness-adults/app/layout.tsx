@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Wellness Heaven - Privátny Wellness | Bratislava",
+  title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
   description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
 };
 

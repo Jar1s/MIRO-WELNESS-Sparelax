@@ -3,52 +3,58 @@ import Image from 'next/image';
 
 const pricing = [
   {
-    service: 'Vstup na 1 hodinu pre 1 osobu',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/gallery-5.jpg',
+    service: 'Privátny wellness č.1',
+    duration: '60 min',
+    price: '50 €',
+    image: '/images/image.png',
   },
   {
-    service: 'Vstup na 2 hodiny pre 1 osobu',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/gallery-6.jpg',
+    service: 'Privátny wellness č.1',
+    duration: '90 min',
+    price: '60 €',
+    image: '/images/image.png',
   },
   {
-    service: 'Vstup na 1 hodinu pre 2 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/gallery-7.jpg',
+    service: 'Privátny wellness č.1',
+    duration: '120 min',
+    price: '70 €',
+    image: '/images/image.png',
   },
   {
-    service: 'Vstup na 2 hodiny pre 2 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/gallery-8.jpg',
+    service: 'Privátny wellness č.1',
+    duration: '180 min',
+    price: '120 €',
+    image: '/images/image.png',
   },
   {
-    service: 'Vstup na 2 hodiny pre 3 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/gallery-1.jpg',
+    service: 'Privátny wellness č.2',
+    duration: '60 min',
+    price: '50 €',
+    image: '/images/image 2.png',
   },
   {
-    service: 'Vstup na 2 hodiny pre 4 osoby',
-    price: '€XX',
-    description: 'Prístup do wellness priestorov',
-    image: '/images/gallery-2.jpg',
+    service: 'Privátny wellness č.2',
+    duration: '90 min',
+    price: '60 €',
+    image: '/images/image 2.png',
   },
   {
-    service: 'Privátny 2h romantický balíček pre dvoch',
-    price: '€XX',
-    description: 'so sektom a ovocnou misou',
-    image: '/images/gallery-3.jpg',
+    service: 'Privátny wellness č.2',
+    duration: '120 min',
+    price: '70 €',
+    image: '/images/image 2.png',
   },
   {
-    service: 'Privátny 2h vstup pre 1-4 osôb',
-    price: '€XX',
-    description: 'Každá ďalšia osoba 12€',
-    image: '/images/gallery-4.jpg',
+    service: 'Privátny wellness č.2',
+    duration: '180 min',
+    price: '120 €',
+    image: '/images/image 2.png',
+  },
+  {
+    service: 'Masáž',
+    duration: '50 min',
+    price: '35 €',
+    image: '/images/image 5.png',
   },
 ];
 
@@ -66,7 +72,7 @@ export default function CennikPage() {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="bg-purple-50 rounded-lg shadow-md p-6 mb-8 border-l-4 border-purple-600">
+          <div className="bg-[#1a1a1a] rounded-lg shadow-md p-6 mb-8 border-l-4 border-[#CD7F32] text-white">
             <p className="text-center text-gray-700">
               <strong>Pre všetky vstupy:</strong> zapožičanie plachty a uteráku v cene. 
               Osušku a župan vám radi zapožičiame za 1,5€, resp. za 2,5€.
@@ -93,10 +99,10 @@ export default function CennikPage() {
                     {item.service}
                   </h3>
                   <p className="text-sm text-gray-600 mb-4">
-                    {item.description}
+                    Dĺžka: {item.duration}
                   </p>
                   <div className="text-right">
-                    <p className="text-3xl font-bold text-purple-600">
+                    <p className="text-3xl font-bold text-[#CD7F32]">
                       {item.price}
                     </p>
                   </div>
@@ -108,13 +114,13 @@ export default function CennikPage() {
           <div className="text-center">
             <Link
               href="/rezervacia"
-              className="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition mr-4"
+              className="inline-block bg-[#CD7F32] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#A0522D] transition mr-4"
             >
               Rezervovať teraz
             </Link>
             <Link
               href="/kontakt"
-              className="inline-block bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition border-2 border-purple-600"
+              className="inline-block bg-white text-[#CD7F32] px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition border-2 border-[#CD7F32]"
             >
               Kontaktovať nás
             </Link>
@@ -124,4 +130,3 @@ export default function CennikPage() {
     </div>
   );
 }
-

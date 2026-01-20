@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Galéria - Wellness Heaven',
+  title: 'Galéria - Spa-Relax Bratislava',
   description: 'Pozrite si naše wellness zariadenia a priestory',
 };
 

@@ -24,30 +24,30 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-purple-600">
-            Wellness Heaven
+          <Link href="/" className="text-2xl font-bold text-[#CD7F32]">
+            Spa-Relax Bratislava
           </Link>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-purple-600 transition">
+            <Link href="/" className="text-gray-700 hover:text-[#CD7F32] transition">
               Úvod
             </Link>
-            <Link href="/o-nas" className="text-gray-700 hover:text-purple-600 transition">
+            <Link href="/o-nas" className="text-gray-700 hover:text-[#CD7F32] transition">
               O nás
             </Link>
-            <Link href="/sluzby" className="text-gray-700 hover:text-purple-600 transition">
+            <Link href="/sluzby" className="text-gray-700 hover:text-[#CD7F32] transition">
               Služby
             </Link>
-            <Link href="/cennik" className="text-gray-700 hover:text-purple-600 transition">
+            <Link href="/cennik" className="text-gray-700 hover:text-[#CD7F32] transition">
               Cenník
             </Link>
-            <Link href="/kontakt" className="text-gray-700 hover:text-purple-600 transition">
+            <Link href="/kontakt" className="text-gray-700 hover:text-[#CD7F32] transition">
               Kontakt
             </Link>
             <Link 
               href="/rezervacia" 
-              className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition"
+              className="bg-[#CD7F32] text-white px-6 py-2 rounded-lg hover:bg-[#A0522D] transition"
             >
               Rezervácia
             </Link>
@@ -74,24 +74,24 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 space-y-2 pb-4">
-            <Link href="/" className="block py-2 text-gray-700 hover:text-purple-600">
+            <Link href="/" className="block py-2 text-gray-700 hover:text-[#CD7F32]">
               Úvod
             </Link>
-            <Link href="/o-nas" className="block py-2 text-gray-700 hover:text-purple-600">
+            <Link href="/o-nas" className="block py-2 text-gray-700 hover:text-[#CD7F32]">
               O nás
             </Link>
-            <Link href="/sluzby" className="block py-2 text-gray-700 hover:text-purple-600">
+            <Link href="/sluzby" className="block py-2 text-gray-700 hover:text-[#CD7F32]">
               Služby
             </Link>
-            <Link href="/cennik" className="block py-2 text-gray-700 hover:text-purple-600">
+            <Link href="/cennik" className="block py-2 text-gray-700 hover:text-[#CD7F32]">
               Cenník
             </Link>
-            <Link href="/kontakt" className="block py-2 text-gray-700 hover:text-purple-600">
+            <Link href="/kontakt" className="block py-2 text-gray-700 hover:text-[#CD7F32]">
               Kontakt
             </Link>
             <Link 
               href="/rezervacia" 
-              className="block bg-purple-600 text-white px-6 py-2 rounded-lg text-center hover:bg-purple-700"
+              className="block bg-[#CD7F32] text-white px-6 py-2 rounded-lg text-center hover:bg-[#A0522D]"
             >
               Rezervácia
             </Link>

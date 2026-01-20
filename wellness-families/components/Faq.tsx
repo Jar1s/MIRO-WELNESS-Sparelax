@@ -31,7 +31,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Môžem prísť autom? Kde môžem parkovať?',
     answer:
-      'Parkovať môžete v okolí prevádzky na verejných miestach (Tomášikova 26 / Ružinov). Odporúčame prísť o pár minút skôr, aby ste si našli miesto.',
+      'Parkovať môžete v okolí prevádzky na verejných miestach (Ivanská cesta 15 / Ružinov). Odporúčame prísť o pár minút skôr, aby ste si našli miesto.',
   },
   {
     question: 'Je v priestoroch internet?',
@@ -55,7 +55,7 @@ export default function Faq() {
 
   const Chevron = ({ open }: { open: boolean }) => (
     <svg
-      className={`w-5 h-5 text-[#6bb8ff] transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+      className={`w-5 h-5 text-[#CD7F32] transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -72,7 +72,7 @@ export default function Faq() {
     <section className="py-16 sm:py-20 md:py-24 bg-[#faf9f7]">
       <div className="max-w-3xl sm:max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10">
-          <p className="text-[#6bb8ff] uppercase tracking-[0.24em] text-xs sm:text-sm font-semibold mb-3">
+          <p className="text-[#CD7F32] uppercase tracking-[0.24em] text-xs sm:text-sm font-semibold mb-3">
             FAQ
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-[#2c2c2c] mb-3">

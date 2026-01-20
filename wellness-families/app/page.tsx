@@ -14,7 +14,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/Photo 11.png"
+                src="/images/image 4.png"
                 alt="Wellness"
                 fill
                 className="object-cover"
@@ -23,12 +23,12 @@ export default function Home() {
               />
             </div>
             <div className="text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
-              <p className="text-[#6bb8ff] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
+              <p className="text-[#CD7F32] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
                 O nás
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c]">
                 Kam v Bratislave za{' '}
-                <span className="text-[#6bb8ff] underline underline-offset-8 decoration-[#6bb8ff] decoration-4">
+                <span className="text-[#CD7F32] underline underline-offset-8 decoration-[#CD7F32] decoration-4">
                   oddychom
                 </span>
               </h2>
@@ -44,52 +44,10 @@ export default function Home() {
               </p>
               <Link
                 href="/o-nas"
-                className="inline-flex items-center gap-2 justify-center text-[#2c2c2c] hover:text-[#4d9be0] transition-colors font-semibold min-h-[44px] border-b-2 border-[#6bb8ff] pb-1 mx-auto lg:mx-0"
+                className="inline-flex items-center gap-2 justify-center text-[#2c2c2c] hover:text-[#A0522D] transition-colors font-semibold min-h-[44px] border-b-2 border-[#CD7F32] pb-1 mx-auto lg:mx-0"
               >
                 Zistiť viac →
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Party Night Section */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-            <div className="order-2 lg:order-1 text-center lg:text-left flex flex-col items-center lg:items-start gap-6">
-              <p className="text-[#6bb8ff] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
-                Party noc
-              </p>
-              <h2 className="text-3xl sm:4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
-                Noc len pre vašu{' '}
-                <span className="text-[#6bb8ff] underline underline-offset-8 decoration-[#6bb8ff] decoration-4">
-                  partiu
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
-                Súkromná vírivka, sauna a relax zóna len pre vás – ideálne pre narodeniny, rozlúčku so slobodou
-                alebo večer s priateľmi. Žiadni cudzí hostia, len vaša atmosféra.
-              </p>
-              <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed">
-                Radi pripravíme priestor, poradíme s občerstvením a hudbou. Užite si celú noc bez časového stresu.
-              </p>
-              <Link
-                href="/cennik"
-                className="inline-flex items-center gap-2 justify-center text-[#2c2c2c] hover:text-[#4d9be0] transition-colors font-semibold min-h-[44px] border-b-2 border-[#6bb8ff] pb-1 mx-auto lg:mx-0"
-              >
-                Zistiť viac →
-              </Link>
-            </div>
-            <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/Photo 14.png"
-                alt="Party noc vo wellness"
-                fill
-                className="object-cover"
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-              />
             </div>
           </div>
         </div>
@@ -98,7 +56,7 @@ export default function Home() {
       <Services />
       
       {/* Gift Vouchers Section - Elegant */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-br from-[#6bb8ff] to-[#4d9be0] text-white relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-gradient-to-br from-[#CD7F32] to-[#A0522D] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-white rounded-full -mr-32 sm:-mr-40 lg:-mr-48 -mt-32 sm:-mt-40 lg:-mt-48"></div>
           <div className="absolute bottom-0 left-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-white rounded-full -ml-32 sm:-ml-40 lg:-ml-48 -mb-32 sm:-mb-40 lg:-mb-48"></div>
@@ -117,7 +75,7 @@ export default function Home() {
             </p>
             <Link
               href="/kontakt"
-              className="inline-block bg-[#f5f5f5] text-black !text-black hover:!text-black px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#ededed] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation border border-[#4d9be0]/25"
+              className="inline-block bg-[#f5f5f5] text-black !text-black hover:!text-black px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#ededed] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation border border-[#A0522D]/25"
               style={{ color: '#000' }}
             >
               Kontaktujte nás

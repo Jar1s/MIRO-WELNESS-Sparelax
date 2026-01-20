@@ -3,53 +3,39 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Služby - Wellness Heaven | Wellness Bratislava',
-  description: 'Ponúkame privátny wellness, súkromnú saunu, relaxačnú miestnosť a masáže v Bratislave.',
+  title: 'Služby - Spa-Relax Bratislava | Wellness Bratislava',
+  description: 'Ponúkame privátny wellness č.1, privátny wellness č.2 a masáže v Bratislave.',
 };
 
 const services = [
   {
-    title: 'Privátny Wellness',
-    description: 'Navštívte našu wellness časť, zrelaxujte telo, oddýchnite si od stresu a načerpajte novú energiu.',
-    image: '/images/gallery-2.jpg',
+    title: 'Privátny wellness č.1',
+    description: 'Súkromný wellness priestor pre nerušený oddych a regeneráciu.',
+    image: '/images/image.png',
     features: [
-      'Súkromný priestor',
-      'Vírivka',
-      'Relaxačné zóny',
-      'Privátne prostredie',
+      '60 min - 50 €',
+      '90 min - 60 €',
+      '120 min - 70 €',
+      '180 min - 120 €',
     ],
   },
   {
-    title: 'Privátna sauna',
-    description: 'Doprajte si nerušený relax v našej súkromnej fínskej saune, ktorá ponúka ideálne podmienky na regeneráciu tela aj mysle.',
-    image: '/images/sauna-1.png',
+    title: 'Privátny wellness č.2',
+    description: 'Druhý privátny wellness priestor s rovnakými možnosťami dĺžky pobytu.',
+    image: '/images/image 2.png',
     features: [
-      'Fínska sauna',
-      'Súkromný priestor',
-      'Ideálna teplota',
-      'Regeneračný efekt',
+      '60 min - 50 €',
+      '90 min - 60 €',
+      '120 min - 70 €',
+      '180 min - 120 €',
     ],
   },
   {
-    title: 'Relaxačná miestnosť',
-    description: 'Vstúpte do priestoru pokoja, kde sa zastavuje čas. Relaxačná miestnosť je ideálnym miestom na odpočinok po saune, masáži alebo náročnom dni.',
-    image: '/images/relax-1.png',
+    title: 'Masáž',
+    description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
+    image: '/images/image 5.png',
     features: [
-      'Pohodlné ležadlá',
-      'Tichá zóna',
-      'Relaxačná atmosféra',
-      'Privátne prostredie',
-    ],
-  },
-  {
-    title: 'Uvoľnenie pri masáži',
-    description: 'Nechajte si chvíľku iba pre seba a doprajte si masáž, uvoľnite stuhnuté svaly a zrelaxujte telo. Vyberte si niektorú z našich masáži, ktoré Vám ponúkame.',
-    image: '/images/massage-1.png',
-    features: [
-      'Relaxačné masáže',
-      'Terapeutické masáže',
-      'Aromaterapia',
-      'Skúsení maséri',
+      '50 min - 35 €',
     ],
   },
 ];
@@ -93,7 +79,7 @@ export default function SluzbyPage() {
                   <ul className="grid grid-cols-1 gap-3">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-gray-700">
-                        <svg className="w-5 h-5 text-purple-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-[#CD7F32] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
                         {feature}
@@ -109,13 +95,13 @@ export default function SluzbyPage() {
         <div className="text-center">
           <Link
             href="/cennik"
-            className="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition mr-4"
+            className="inline-block bg-[#CD7F32] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#A0522D] transition mr-4"
           >
             Zobraziť cenník
           </Link>
           <Link
             href="/rezervacia"
-            className="inline-block bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition border-2 border-purple-600"
+            className="inline-block bg-white text-[#CD7F32] px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition border-2 border-[#CD7F32]"
           >
             Rezervovať teraz
           </Link>

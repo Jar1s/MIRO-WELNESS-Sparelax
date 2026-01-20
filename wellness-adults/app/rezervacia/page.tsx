@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import BookiaWidget from "@/lib/bookia";
 
 export const metadata: Metadata = {
-  title: 'Rezervácia - Wellness Heaven | Online rezervácia',
+  title: 'Rezervácia - Spa-Relax Bratislava | Online rezervácia',
   description: 'Rezervujte si návštevu v našom privátnom wellness centre. Online rezervácia cez Bookia.',
 };
 
@@ -36,7 +36,7 @@ export default function RezervaciaPage() {
             href={`https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID || ''}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-purple-600 hover:underline"
+            className="text-[#CD7F32] hover:underline"
           >
             Otvoriť rezerváciu v novom okne
           </a>

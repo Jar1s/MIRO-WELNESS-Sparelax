@@ -39,40 +39,40 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link 
             href="/" 
-            className="text-2xl sm:text-3xl font-display font-bold text-[#6bb8ff] tracking-tight hover:text-[#4d9be0] transition-colors drop-shadow-sm"
+            className="text-2xl sm:text-3xl font-display font-bold text-[#CD7F32] tracking-tight hover:text-[#A0522D] transition-colors drop-shadow-sm"
           >
-            Wellness Heaven
+            Spa-Relax Bratislava
           </Link>
           
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <Link 
               href="/" 
-              className="text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
+              className="text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
             >
               Úvod
             </Link>
             <Link 
               href="/o-nas" 
-              className="text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
+              className="text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
             >
               O nás
             </Link>
             <Link 
               href="/sluzby" 
-              className="text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
+              className="text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
             >
               Služby
             </Link>
             <Link 
               href="/cennik" 
-              className="text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
+              className="text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
             >
               Cenník
             </Link>
             <Link 
               href="/kontakt" 
-              className="text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
+              className="text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-sm tracking-wide drop-shadow-sm"
             >
               Kontakt
             </Link>
@@ -80,7 +80,7 @@ export default function Header() {
               href="https://services.bookio.com/wellness-heaven/widget?lang=sk" 
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#6bb8ff] text-white px-6 py-2.5 rounded-full hover:bg-[#4d9be0] transition-all font-medium text-sm tracking-wide shadow-lg hover:shadow-xl"
+              className="bg-[#CD7F32] text-white px-6 py-2.5 rounded-full hover:bg-[#A0522D] transition-all font-medium text-sm tracking-wide shadow-lg hover:shadow-xl"
             >
               Rezervácia
             </Link>
@@ -111,35 +111,35 @@ export default function Header() {
           <div className="lg:hidden mt-4 sm:mt-6 space-y-2 sm:space-y-3 pb-6 bg-white/98 backdrop-blur-md rounded-lg p-4 sm:p-6 -mx-4 sm:-mx-6 shadow-lg animate-in slide-in-from-top-2 duration-200">
             <Link 
               href="/" 
-              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
+              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
               onClick={() => setIsMenuOpen(false)}
             >
               Úvod
             </Link>
             <Link 
               href="/o-nas" 
-              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
+              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
               onClick={() => setIsMenuOpen(false)}
             >
               O nás
             </Link>
             <Link 
               href="/sluzby" 
-              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
+              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
               onClick={() => setIsMenuOpen(false)}
             >
               Služby
             </Link>
             <Link 
               href="/cennik" 
-              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
+              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
               onClick={() => setIsMenuOpen(false)}
             >
               Cenník
             </Link>
             <Link 
               href="/kontakt" 
-              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#6bb8ff] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
+              className="block py-3 sm:py-2.5 text-[#2c2c2c] hover:text-[#CD7F32] transition-colors font-medium text-base sm:text-sm min-h-[44px] flex items-center touch-manipulation"
               onClick={() => setIsMenuOpen(false)}
             >
               Kontakt
@@ -148,7 +148,7 @@ export default function Header() {
               href="https://services.bookio.com/wellness-heaven/widget?lang=sk"
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-[#6bb8ff] text-white px-6 py-3.5 sm:py-3 rounded-full text-center hover:bg-[#4d9be0] transition-all font-medium mt-4 min-h-[44px] flex items-center justify-center touch-manipulation"
+              className="block bg-[#CD7F32] text-white px-6 py-3.5 sm:py-3 rounded-full text-center hover:bg-[#A0522D] transition-all font-medium mt-4 min-h-[44px] flex items-center justify-center touch-manipulation"
               onClick={() => setIsMenuOpen(false)}
             >
               Rezervácia

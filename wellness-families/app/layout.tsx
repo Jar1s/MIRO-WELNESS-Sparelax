@@ -27,24 +27,24 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://wellnes-heaven.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Wellness Heaven - Privátny Wellness | Bratislava",
+  title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
   description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: "Wellness Heaven - Privátny Wellness | Bratislava",
+    title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
     description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
     images: [
       {
         url: `${siteUrl}/images/Photo%2011.png`,
         width: 1200,
         height: 630,
-        alt: "Wellness Heaven lounge",
+        alt: "Spa-Relax Bratislava lounge",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wellness Heaven - Privátny Wellness | Bratislava",
+    title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
     description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
     images: [`${siteUrl}/images/Photo%2011.png`],
   },
@@ -61,10 +61,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="theme-color" content="#6bb8ff" />
+        <meta name="theme-color" content="#CD7F32" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Wellness Heaven" />
+        <meta name="apple-mobile-web-app-title" content="Spa-Relax Bratislava" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

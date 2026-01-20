@@ -9,24 +9,19 @@ interface Service {
 
 const services: Service[] = [
   {
-    title: 'Privátny Wellness',
-    description: 'Navštívte našu wellness časť, zrelaxujte telo, oddýchnite si od stresu a načerpajte novú energiu.',
-    image: '/images/gallery-2.jpg',
+    title: 'Privátny wellness č.1',
+    description: 'Súkromný wellness priestor. Dĺžka 60-180 min, od 50 €.',
+    image: '/images/image.png',
   },
   {
-    title: 'Privátna sauna',
-    description: 'Doprajte si nerušený relax v našej súkromnej fínskej saune, ktorá ponúka ideálne podmienky na regeneráciu tela aj mysle.',
-    image: '/images/sauna-1.png',
+    title: 'Privátny wellness č.2',
+    description: 'Druhý privátny wellness priestor. Dĺžka 60-180 min, od 50 €.',
+    image: '/images/image 2.png',
   },
   {
-    title: 'Relaxačná miestnosť',
-    description: 'Vstúpte do priestoru pokoja, kde sa zastavuje čas. Relaxačná miestnosť je ideálnym miestom na odpočinok po saune, masáži alebo náročnom dni.',
-    image: '/images/relax-1.png',
-  },
-  {
-    title: 'Uvoľnenie pri masáži',
-    description: 'Nechajte si chvíľku iba pre seba a doprajte si masáž, uvoľnite stuhnuté svaly a zrelaxujte telo. Vyberte si niektorú z našich masáži, ktoré Vám ponúkame.',
-    image: '/images/massage-1.png',
+    title: 'Masáž',
+    description: 'Uvoľňujúca masáž 50 min za 35 €.',
+    image: '/images/image 5.png',
   },
 ];
 
@@ -76,7 +71,7 @@ export default function Services() {
           </p>
           <Link
             href="/cennik"
-            className="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition"
+            className="inline-block bg-[#CD7F32] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#A0522D] transition"
           >
             Cenník
           </Link>
@@ -85,4 +80,3 @@ export default function Services() {
     </section>
   );
 }
-

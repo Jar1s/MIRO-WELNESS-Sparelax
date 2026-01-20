@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">Wellness Heaven</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[#CD7F32]">Spa-Relax Bratislava</h3>
             <p className="text-gray-400">
               Privátny Wellness v Bratislave – Ružinov
             </p>
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Wellness Heaven. Všetky práva vyhradené.</p>
+          <p>&copy; 2025 Spa-Relax Bratislava. Všetky práva vyhradené.</p>
         </div>
       </div>
     </footer>

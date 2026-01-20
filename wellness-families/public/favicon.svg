@@ -1,5 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#e8f3ff" rx="12" ry="12"/>
-  <text x="32" y="44" font-family="serif" font-weight="700" font-size="36" text-anchor="middle" fill="#1b3b6f">W</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CD7F32" />
+      <stop offset="100%" stop-color="#A0522D" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#brand-gradient)" />
+  <text
+    x="64"
+    y="74"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="72"
+    font-weight="700"
+    fill="#FFFFFF"
+  >
+    S
+  </text>
 </svg>
  

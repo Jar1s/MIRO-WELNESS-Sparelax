@@ -8,6 +8,7 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(false);
   const [isMounted] = useState(true);
+  const heroVideoSrc = '/videos/hero-video.mp4?v=20250120';
 
   useEffect(() => {
     if (videoRef.current && isMounted) {
@@ -66,7 +67,7 @@ export default function Hero() {
       <div className="absolute inset-0 lg:hidden">
         <Image
           src="/images/Photo 1.png"
-          alt="Wellness Heaven"
+          alt="Spa-Relax Bratislava"
           fill
           className="object-cover"
           priority
@@ -105,7 +106,7 @@ export default function Hero() {
             poster="/images/new-photos/photo-00.jpg"
             suppressHydrationWarning
           >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
+            <source src={heroVideoSrc} type="video/mp4" />
             <source src="/videos/hero-video.webm" type="video/webm" />
           </video>
         )}
@@ -113,7 +114,7 @@ export default function Hero() {
         {/* Gradient overlay - multiple layers for better effect */}
         <div className="absolute inset-0 z-30 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#6bb8ff]/35 via-[#6bb8ff]/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#CD7F32]/35 via-[#CD7F32]/20 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
         </div>
@@ -123,10 +124,10 @@ export default function Hero() {
       <div className="relative z-10 w-full lg:flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-20 order-1 lg:order-2 min-h-[100vh] lg:min-h-screen">
         <div className="max-w-2xl w-full bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg lg:bg-transparent lg:backdrop-blur-0 lg:rounded-none lg:p-0 lg:shadow-none text-center lg:space-y-2">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-[#2c2c2c] mb-3 sm:mb-5 leading-tight">
-            Wellness Heaven
+            Spa-Relax
           </h1>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-light text-[#6b6b6b] mb-6 sm:mb-10">
-            Privátny Wellness v Bratislave
+            Bratislava
           </h2>
           
           <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-8 sm:mb-12 max-w-xl mx-auto">
@@ -155,7 +156,7 @@ export default function Hero() {
               href="https://services.bookio.com/wellness-heaven/widget?lang=sk"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#6bb8ff] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4d9be0] transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-center min-h-[44px] flex items-center justify-center touch-manipulation"
+              className="bg-[#CD7F32] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-center min-h-[44px] flex items-center justify-center touch-manipulation"
             >
               Rezervovať vstup
             </Link>

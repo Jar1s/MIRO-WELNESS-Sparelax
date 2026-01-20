@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Hero() {
+  const heroVideoSrc = '/videos/hero-video.mp4?v=20250120';
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       {/* Background Image */}
@@ -13,7 +15,18 @@ export default function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 to-purple-700/70"></div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/images/Photo 1.png"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={heroVideoSrc} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0d0d0d]/85"></div>
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
@@ -21,11 +34,11 @@ export default function Hero() {
           <p className="text-lg md:text-xl text-white/90 mb-4 drop-shadow-lg font-light">
             Vitajte
           </p>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-            Wellness Heaven
+          <h1 className="text-5xl md:text-7xl font-bold text-[#CD7F32] mb-6 drop-shadow-lg">
+            Spa-Relax
           </h1>
           <h2 className="text-3xl md:text-4xl font-light text-white mb-8 drop-shadow-lg">
-            Privátny Wellness
+            Bratislava
           </h2>
           
           {/* Opening Hours */}
@@ -46,7 +59,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
               href="/rezervacia"
-              className="bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-700 transition shadow-lg"
+              className="bg-[#CD7F32] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#A0522D] transition shadow-lg"
             >
               Rezervovať vstup
             </Link>

@@ -15,7 +15,7 @@ export default function ONasPage() {
                 Privátny Wellness
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Vitajte v Wellness Heaven – súkromnom wellness centre v Bratislave. 
+                Vitajte v Spa-Relax Bratislava – súkromnom wellness centre v Bratislave. 
                 Ponúkame súkromný wellness pre dvoch alebo partiu priateľov. 
                 Nie sme ako ostatné hromadné alebo hotelové wellness.
               </p>

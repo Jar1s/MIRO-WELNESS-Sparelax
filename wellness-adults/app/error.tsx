@@ -17,7 +17,7 @@ export default function Error({
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="text-center max-w-md">
-        <h1 className="text-6xl font-bold text-purple-600 mb-4">Oops!</h1>
+        <h1 className="text-6xl font-bold text-[#CD7F32] mb-4">Oops!</h1>
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">
           Niečo sa pokazilo
         </h2>
@@ -27,7 +27,7 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={reset}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors"
+            className="bg-[#CD7F32] text-white px-6 py-3 rounded-lg hover:bg-[#A0522D] transition-colors"
           >
             Skúsiť znova
           </button>
