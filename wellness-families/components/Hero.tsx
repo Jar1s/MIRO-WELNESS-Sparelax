@@ -66,7 +66,7 @@ export default function Hero() {
       {/* Mobile background image */}
       <div className="absolute inset-0 lg:hidden">
         <Image
-          src="/images/Photo 1.png"
+          src="/images/image 4.png"
           alt="Spa-Relax Bratislava"
           fill
           className="object-cover"
