@@ -33,7 +33,7 @@ export default function RezervaciaPage() {
             Alebo rezervujte priamo cez Bookia:
           </p>
           <a
-            href={`https://bookia.sk/rezervacia/${process.env.NEXT_PUBLIC_BOOKIA_ID || ''}`}
+            href="https://services.bookio.com/spa-relax-bratislava/widget?lang=sk"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#CD7F32] hover:underline"

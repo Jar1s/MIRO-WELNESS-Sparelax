@@ -77,7 +77,7 @@ export default function Header() {
               Kontakt
             </Link>
             <Link 
-              href="https://services.bookio.com/wellness-heaven/widget?lang=sk" 
+              href="https://services.bookio.com/spa-relax-bratislava/widget?lang=sk" 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#CD7F32] text-white px-6 py-2.5 rounded-full hover:bg-[#A0522D] transition-all font-medium text-sm tracking-wide shadow-lg hover:shadow-xl"
@@ -145,7 +145,7 @@ export default function Header() {
               Kontakt
             </Link>
             <Link 
-              href="https://services.bookio.com/wellness-heaven/widget?lang=sk"
+              href="https://services.bookio.com/spa-relax-bratislava/widget?lang=sk"
               target="_blank"
               rel="noopener noreferrer"
               className="block bg-[#CD7F32] text-white px-6 py-3.5 sm:py-3 rounded-full text-center hover:bg-[#A0522D] transition-all font-medium mt-4 min-h-[44px] flex items-center justify-center touch-manipulation"

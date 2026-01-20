@@ -153,7 +153,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
-              href="https://services.bookio.com/wellness-heaven/widget?lang=sk"
+              href="https://services.bookio.com/spa-relax-bratislava/widget?lang=sk"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#CD7F32] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-center min-h-[44px] flex items-center justify-center touch-manipulation"

@@ -127,9 +127,8 @@ export function getBookiaLink(bookiaId?: string): string {
   if (!id || id === 'YOUR_BOOKIA_ID') {
     return '#';
   }
-  return `https://bookia.sk/rezervacia/${id}`;
+  return 'https://services.bookio.com/spa-relax-bratislava/widget?lang=sk';
 }
-
 
 
 

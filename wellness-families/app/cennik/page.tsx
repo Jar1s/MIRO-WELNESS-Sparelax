@@ -14,7 +14,7 @@ const pricing = [
 ];
 
 export default function CennikPage() {
-  const bookiaLink = 'https://services.bookio.com/wellness-heaven/widget?lang=sk';
+  const bookiaLink = 'https://services.bookio.com/spa-relax-bratislava/widget?lang=sk';
 
   return (
     <div className="pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 md:pb-24 lg:pb-32 bg-[#faf9f7] min-h-screen">
