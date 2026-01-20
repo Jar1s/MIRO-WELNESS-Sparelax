@@ -23,7 +23,7 @@ const services = [
   {
     title: 'Privátny wellness č.2',
     description: 'Druhý privátny wellness priestor s rovnakými možnosťami dĺžky pobytu.',
-    image: '/images/image 2.png',
+    image: '/images/image 6.png',
     features: [
       '60 min - 50 €',
       '90 min - 60 €',
@@ -32,9 +32,31 @@ const services = [
     ],
   },
   {
+    title: 'Privátna sauna',
+    description: 'Súkromná sauna pre nerušený oddych a regeneráciu.',
+    image: '/images/image 2.png',
+    features: [
+      '60 min - 40 €',
+      '90 min - 50 €',
+      '120 min - 60 €',
+      '180 min - 120 €',
+    ],
+  },
+  {
+    title: 'Relaxačná miestnosť',
+    description: 'Tichý priestor na oddych po saune alebo náročnom dni.',
+    image: '/images/image 5.png',
+    features: [
+      '60 min - 30 €',
+      '90 min - 40 €',
+      '120 min - 50 €',
+      '180 min - 100 €',
+    ],
+  },
+  {
     title: 'Masáž',
     description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
-    image: '/images/image 5.png',
+    image: '/images/image 7.png',
     features: [
       '50 min - 35 €',
     ],

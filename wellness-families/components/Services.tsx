@@ -10,18 +10,28 @@ interface Service {
 const services: Service[] = [
   {
     title: 'Privátny wellness č.1',
-    description: 'Súkromný wellness priestor. Dĺžka 60-180 min, od 50 €.',
+    description: 'Súkromný wellness priestor pre nerušený oddych.',
     image: '/images/image.png',
   },
   {
     title: 'Privátny wellness č.2',
-    description: 'Druhý privátny wellness priestor. Dĺžka 60-180 min, od 50 €.',
+    description: 'Druhý privátny wellness priestor s rovnakým komfortom.',
+    image: '/images/image 6.png',
+  },
+  {
+    title: 'Privátna sauna',
+    description: 'Súkromná sauna pre nerušený oddych a regeneráciu.',
     image: '/images/image 2.png',
   },
   {
-    title: 'Masáž',
-    description: 'Uvoľňujúca masáž 50 min za 35 €.',
+    title: 'Relaxačná miestnosť',
+    description: 'Oddychová zóna na pokojný relax.',
     image: '/images/image 5.png',
+  },
+  {
+    title: 'Masáž',
+    description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
+    image: '/images/image 7.png',
   },
 ];
 
