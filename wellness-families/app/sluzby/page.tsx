@@ -77,8 +77,10 @@ export default function SluzbyPage() {
         </div>
 
         <div className="space-y-12 sm:space-y-16 mb-12 sm:mb-16">
-          {services.map((service, index) => (
-            <div
+          {services.map((service, index) => {
+            const isFirst = index === 0;
+            return (
+              <div
                 key={index}
                 className={`bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden ${
                   index % 2 === 0 ? '' : 'md:flex-row-reverse'
@@ -98,20 +100,47 @@ export default function SluzbyPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                   />
                 </div>
-                <div className="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
+                <div
+                  className={`p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center ${
+                    isFirst ? 'items-center md:items-start' : ''
+                  }`}
+                >
+                  <h2
+                    className={`text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6 ${
+                      isFirst ? 'text-center md:text-left' : ''
+                    }`}
+                  >
                     {service.title}
                   </h2>
-                  <p className="text-base sm:text-lg text-[#6b6b6b] mb-6 sm:mb-8 leading-relaxed">
+                  <p
+                    className={`text-base sm:text-lg text-[#6b6b6b] mb-6 sm:mb-8 leading-relaxed ${
+                      isFirst ? 'text-center md:text-left' : ''
+                    }`}
+                  >
                     {service.description}
                   </p>
-                  <ul className="grid grid-cols-1 gap-3 sm:gap-4">
+                  <ul
+                    className={`grid grid-cols-1 gap-3 sm:gap-4 ${
+                      isFirst ? 'justify-items-center md:justify-items-start' : ''
+                    }`}
+                  >
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-[#2c2c2c]">
+                      <li
+                        key={idx}
+                        className={`flex items-center text-[#2c2c2c] ${
+                          isFirst ? 'justify-center md:justify-start' : ''
+                        }`}
+                      >
                         <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#CD7F32] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                        <span className="font-medium text-sm sm:text-base">{feature}</span>
+                        <span
+                          className={`font-medium text-sm sm:text-base ${
+                            isFirst ? 'text-center md:text-left' : ''
+                          }`}
+                        >
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -127,8 +156,9 @@ export default function SluzbyPage() {
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
         <div className="text-center flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
