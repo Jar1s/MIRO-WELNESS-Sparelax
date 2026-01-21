@@ -24,7 +24,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 const gadsId = process.env.NEXT_PUBLIC_GADS_ID;
 const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://wellnes-heaven.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://sparelaxbratislava.sk";
 
 export const metadata: Metadata = {
   title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
     images: [
       {
-        url: `${siteUrl}/images/Photo%2011.png`,
+        url: `${siteUrl}/images/image%204.png`,
         width: 1200,
         height: 630,
-        alt: "Spa-Relax Bratislava lounge",
+        alt: "Spa-Relax Bratislava",
       },
     ],
   },
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
     description: "Privátny wellness v Bratislave – Ružinov. Súkromný wellness pre dvoch alebo partiu priateľov. Sauna, masáže, vírivka.",
-    images: [`${siteUrl}/images/Photo%2011.png`],
+    images: [`${siteUrl}/images/image%204.png`],
   },
 };
 

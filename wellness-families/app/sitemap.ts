@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.wellnessheaven.sk';
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://sparelaxbratislava.sk').replace(/\/$/, '');
   
   return [
     {
@@ -48,7 +48,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
-
 
 
