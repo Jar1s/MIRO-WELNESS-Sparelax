@@ -78,7 +78,7 @@ export default function SluzbyPage() {
 
         <div className="space-y-12 sm:space-y-16 mb-12 sm:mb-16">
           {services.map((service, index) => {
-            const isFirst = index === 0;
+            const isMobileCentered = true;
             return (
               <div
                 key={index}
@@ -102,33 +102,33 @@ export default function SluzbyPage() {
                 </div>
                 <div
                   className={`p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center ${
-                    isFirst ? 'items-center md:items-start' : ''
+                    isMobileCentered ? 'items-center md:items-start' : ''
                   }`}
                 >
                   <h2
                     className={`text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6 ${
-                      isFirst ? 'text-center md:text-left' : ''
+                      isMobileCentered ? 'text-center md:text-left' : ''
                     }`}
                   >
                     {service.title}
                   </h2>
                   <p
                     className={`text-base sm:text-lg text-[#6b6b6b] mb-6 sm:mb-8 leading-relaxed ${
-                      isFirst ? 'text-center md:text-left' : ''
+                      isMobileCentered ? 'text-center md:text-left' : ''
                     }`}
                   >
                     {service.description}
                   </p>
                   <ul
                     className={`grid grid-cols-1 gap-3 sm:gap-4 ${
-                      isFirst ? 'justify-items-center md:justify-items-start' : ''
+                      isMobileCentered ? 'justify-items-center md:justify-items-start' : ''
                     }`}
                   >
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
                         className={`flex items-center text-[#2c2c2c] ${
-                          isFirst ? 'justify-center md:justify-start' : ''
+                          isMobileCentered ? 'justify-center md:justify-start' : ''
                         }`}
                       >
                         <svg className="w-5 h-5 sm:w-6 sm:h-6 text-[#CD7F32] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -136,7 +136,7 @@ export default function SluzbyPage() {
                         </svg>
                         <span
                           className={`font-medium text-sm sm:text-base ${
-                            isFirst ? 'text-center md:text-left' : ''
+                            isMobileCentered ? 'text-center md:text-left' : ''
                           }`}
                         >
                           {feature}
