@@ -102,7 +102,7 @@ export default function KontaktPage() {
           </h2>
           <div className="flex justify-center space-x-6 sm:space-x-8">
             <a
-              href="https://www.instagram.com/wellnessheavensk/"
+              href="https://www.instagram.com/sparelaxbratislava/"
               className="text-[#6b6b6b] hover:text-[#CD7F32] transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
               target="_blank"
               rel="noopener noreferrer"
