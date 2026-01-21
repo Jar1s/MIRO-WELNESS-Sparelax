@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://sparelaxbratislava.sk').replace(/\/$/, '');
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sparelaxbratislava.sk').replace(/\/$/, '');
 
   return {
     rules: {
@@ -13,6 +13,5 @@ export default function robots(): MetadataRoute.Robots {
     host: baseUrl,
   };
 }
-
 
 

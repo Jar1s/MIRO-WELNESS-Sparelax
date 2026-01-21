@@ -24,7 +24,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 const gadsId = process.env.NEXT_PUBLIC_GADS_ID;
 const fbPixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://sparelaxbratislava.sk";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.sparelaxbratislava.sk";
 
 export const metadata: Metadata = {
   title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",

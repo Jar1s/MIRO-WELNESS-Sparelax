@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://sparelaxbratislava.sk";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.sparelaxbratislava.sk";
 
 export const metadata: Metadata = {
   title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",

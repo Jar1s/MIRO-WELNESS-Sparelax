@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://sparelaxbratislava.sk').replace(/\/$/, '');
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sparelaxbratislava.sk').replace(/\/$/, '');
   
   return [
     {
@@ -48,5 +48,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
 
