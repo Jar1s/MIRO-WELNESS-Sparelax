@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -11,6 +12,7 @@ const inter = Inter({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.sparelaxbratislava.sk";
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-T7K53SLB";
 
 export const metadata: Metadata = {
   title: "Spa-Relax Bratislava - Privátny Wellness | Bratislava",
@@ -55,6 +57,25 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <body className={inter.className}>
+        {gtmId && (
+          <Script id="gtm-init" strategy="beforeInteractive">
+            {`
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${gtmId}');
+            `}
+          </Script>
+        )}
+        {gtmId && (
+          <noscript
+            aria-hidden="true"
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}
+          />
+        )}
         <Header />
         <main>{children}</main>
         <Footer />
