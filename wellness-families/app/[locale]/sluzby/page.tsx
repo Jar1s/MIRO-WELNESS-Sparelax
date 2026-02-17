@@ -143,7 +143,7 @@ export default async function SluzbyLocalizedPage({ params }: PageProps) {
             return (
               <div
                 key={index}
-                className={`bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden ${
+                className={`service-card-surface bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden border border-[#e8e6e3] ring-1 ring-black/5 ${
                   index % 2 === 0 ? '' : 'md:flex-row-reverse'
                 }`}
                 id={service.title
@@ -169,7 +169,7 @@ export default async function SluzbyLocalizedPage({ params }: PageProps) {
                     />
                   </div>
                   <div
-                    className={`p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center ${
+                    className={`service-card-content bg-[#fbfaf8] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center ${
                       isMobileCentered ? 'items-center md:items-start' : ''
                     }`}
                   >
