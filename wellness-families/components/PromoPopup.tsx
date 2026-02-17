@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { DEFAULT_LOCALE, toLocalizedPath, type Locale } from '@/lib/i18n';
 
 type PopupData = {
@@ -44,31 +44,59 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
   const getDismissKey = (data: PopupData) =>
     `promo_popup_dismissed_${data.id}_${data.updated_at ?? 'v1'}`;
 
+  const loadPopup = useCallback(async () => {
+    try {
+      const res = await fetch('/api/popup', { cache: 'no-store' });
+      if (!res.ok) return;
+
+      const json = await res.json();
+      const data: PopupData | null = json?.popup ?? null;
+      if (!data?.id) {
+        setPopup(null);
+        setVisible(false);
+        return;
+      }
+
+      const forcePreview = new URLSearchParams(window.location.search).get('popupPreview') === '1';
+      const key = getDismissKey(data);
+      const dismissed = localStorage.getItem(key);
+
+      setPopup(data);
+      setImageOk(true);
+      setVisible(forcePreview || !dismissed);
+    } catch {
+      // ignore
+    }
+  }, []);
+
   useEffect(() => {
-    const load = async () => {
-      try {
-        const res = await fetch('/api/popup', { cache: 'no-store' });
-        const json = await res.json();
-        const data: PopupData | null = json?.popup ?? null;
-        if (!data?.id) return;
+    const initialTimer = window.setTimeout(() => {
+      void loadPopup();
+    }, 0);
 
-        const forcePreview =
-          typeof window !== 'undefined' &&
-          new URLSearchParams(window.location.search).get('popupPreview') === '1';
+    const handleFocus = () => {
+      void loadPopup();
+    };
 
-        const key = getDismissKey(data);
-        const dismissed = localStorage.getItem(key);
-        if (forcePreview || !dismissed) {
-          setPopup(data);
-          setVisible(true);
-        }
-      } catch {
-        // ignore
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === 'promo_popup_force_refresh') {
+        void loadPopup();
       }
     };
 
-    load();
-  }, []);
+    window.addEventListener('focus', handleFocus);
+    window.addEventListener('storage', handleStorage);
+    const interval = window.setInterval(() => {
+      void loadPopup();
+    }, 30000);
+
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('storage', handleStorage);
+      window.clearInterval(interval);
+    };
+  }, [loadPopup]);
 
   useEffect(() => {
     if (!visible) return;
@@ -139,12 +167,14 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
 
   if (!popup || !visible) return null;
 
+  const normalizedSize: 'sm' | 'md' | 'lg' =
+    popup.popup_size === 'lg' || popup.popup_size === 'sm' ? popup.popup_size : 'md';
   const sizeClass =
-    popup.popup_size === 'lg'
-      ? 'max-w-[86vw] sm:max-w-[520px]'
-      : popup.popup_size === 'sm'
-        ? 'max-w-[78vw] sm:max-w-[320px]'
-        : 'max-w-[82vw] sm:max-w-[420px]';
+    normalizedSize === 'lg'
+      ? 'w-[90vw] sm:w-[520px] lg:w-[620px] max-h-[84vh] sm:max-h-[88vh]'
+      : normalizedSize === 'sm'
+        ? 'w-[64vw] sm:w-[240px] lg:w-[300px] max-h-[60vh] sm:max-h-[66vh]'
+        : 'w-[80vw] sm:w-[380px] lg:w-[470px] max-h-[72vh] sm:max-h-[80vh]';
 
   return (
     <div
@@ -177,13 +207,15 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
                   className="block rounded-sm outline-none ring-offset-2 ring-offset-black focus-visible:ring-2 focus-visible:ring-[#CD7F32]"
                   aria-label={t.openPricing}
                 >
-                  <img
-                    src={popup.image_url}
-                    alt={popup.title || t.fallbackAlt}
-                    className={`${sizeClass} h-auto max-h-[72vh] sm:max-h-[78vh] w-auto shadow-2xl`}
-                    draggable={false}
-                    onError={() => setImageOk(false)}
-                  />
+                  <div className={`${sizeClass} flex items-center justify-center`}>
+                    <img
+                      src={popup.image_url}
+                      alt={popup.title || t.fallbackAlt}
+                      className="block h-auto w-auto max-h-full max-w-full shadow-2xl"
+                      draggable={false}
+                      onError={() => setImageOk(false)}
+                    />
+                  </div>
                 </button>
 
                 <button

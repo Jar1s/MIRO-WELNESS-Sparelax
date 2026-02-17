@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DEFAULT_LOCALE, getBookioLang, type Locale } from '@/lib/i18n';
 
 type HeroProps = {
@@ -31,70 +31,63 @@ const copy = {
 } as const;
 
 export default function Hero({ locale = DEFAULT_LOCALE }: HeroProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(false);
-  const [isMounted] = useState(true);
+  const [shouldRenderVideo, setShouldRenderVideo] = useState(false);
   const t = copy[locale];
-  const heroVideoSrc = '/videos/hero-video.mp4?v=20250120';
+  const heroVideoSrc = '/videos/hero-video-optimized.mp4?v=20260217';
   const bookiaLink = `https://services.bookio.com/spa-relax-bratislava/widget?lang=${getBookioLang(locale)}`;
 
   useEffect(() => {
-    if (videoRef.current && isMounted) {
-      const video = videoRef.current;
-      
-      const checkVideo = async () => {
-        try {
-          // Try to load video
-          video.load();
-          
-          // Wait a bit to see if video loads
-          await new Promise(resolve => setTimeout(resolve, 100));
-          
-          if (video.readyState >= 2) { // HAVE_CURRENT_DATA
-            setShowVideo(true);
-            video.play().catch(() => {
-              // Autoplay failed, but video is loaded
-              setShowVideo(true);
-            });
-          } else {
-            // Video not available, show image
-            setShowVideo(false);
-          }
-        } catch {
-          setShowVideo(false);
-        }
-      };
+    const desktopQuery = window.matchMedia('(min-width: 1024px)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      const handleCanPlay = () => {
-        setShowVideo(true);
-        video.play().catch(() => {
-          // Autoplay prevented, but video is ready
-          setShowVideo(true);
-        });
+    const updateVideoMode = () => {
+      const nav = navigator as Navigator & {
+        connection?: {
+          effectiveType?: string;
+          saveData?: boolean;
+        };
       };
+      const connection = nav.connection;
+      const slowConnection =
+        connection?.effectiveType !== undefined &&
+        ['slow-2g', '2g', '3g'].includes(connection.effectiveType);
+      const saveData = Boolean(connection?.saveData);
 
-      const handleError = () => {
+      const enabled = desktopQuery.matches && !reducedMotionQuery.matches && !slowConnection && !saveData;
+      setShouldRenderVideo(enabled);
+
+      if (!enabled) {
         setShowVideo(false);
-      };
+      }
+    };
 
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('error', handleError);
-      
-      checkVideo();
+    const bindMediaQueryChange = (query: MediaQueryList, listener: () => void) => {
+      if (typeof query.addEventListener === 'function') {
+        query.addEventListener('change', listener);
+        return () => query.removeEventListener('change', listener);
+      }
 
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('error', handleError);
-      };
-    }
-  }, [isMounted]);
+      query.addListener(listener);
+      return () => query.removeListener(listener);
+    };
+
+    updateVideoMode();
+    const removeDesktopListener = bindMediaQueryChange(desktopQuery, updateVideoMode);
+    const removeMotionListener = bindMediaQueryChange(reducedMotionQuery, updateVideoMode);
+
+    return () => {
+      removeDesktopListener();
+      removeMotionListener();
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex flex-col lg:flex-row items-stretch overflow-hidden bg-[#faf9f7]">
       {/* Mobile background image */}
       <div className="absolute inset-0 lg:hidden">
         <Image
-          src="/images/image 4.png"
+          src="/images/optimized/image-4.webp"
           alt="Spa-Relax Bratislava"
           fill
           className="object-cover"
@@ -109,33 +102,35 @@ export default function Hero({ locale = DEFAULT_LOCALE }: HeroProps) {
       <div className="hidden lg:block lg:flex-1 relative order-1 min-h-screen">
         {/* Fallback image */}
         <Image
-          src="/images/new-photos/photo-00.jpg"
+          src="/images/optimized/hero-poster.webp"
           alt="Wellness"
           fill
           className={`object-cover z-0 transition-opacity duration-700 ${
             showVideo ? 'opacity-0' : 'opacity-100'
           }`}
-          priority
           loading="eager"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
         
         {/* Video Background */}
-        {isMounted && (
+        {shouldRenderVideo && (
           <video
-            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
             className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700 ${
               showVideo ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
-            poster="/images/new-photos/photo-00.jpg"
-            suppressHydrationWarning
+            poster="/images/optimized/hero-poster.webp"
+            onCanPlay={() => setShowVideo(true)}
+            onError={() => {
+              setShowVideo(false);
+              setShouldRenderVideo(false);
+            }}
           >
             <source src={heroVideoSrc} type="video/mp4" />
-            <source src="/videos/hero-video.webm" type="video/webm" />
           </video>
         )}
         

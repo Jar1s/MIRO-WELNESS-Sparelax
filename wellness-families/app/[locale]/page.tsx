@@ -79,7 +79,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/image 4.png"
+                src="/images/optimized/image-4.webp"
                 alt="Wellness"
                 fill
                 className="object-cover"

@@ -112,8 +112,23 @@ export default function AdminPage() {
       if (!res.ok) {
         throw new Error(json?.error || 'Save failed');
       }
-      setForm((prev) => ({ ...prev, id: json.popup?.id || prev.id }));
+      setForm((prev) => ({
+        ...prev,
+        id: json.popup?.id || prev.id,
+        popup_size:
+          json.popup?.popup_size === 'lg' || json.popup?.popup_size === 'sm'
+            ? json.popup.popup_size
+            : 'md',
+      }));
       setMessage('Uložené.');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('promo_popup_force_refresh', String(Date.now()));
+      }
+      return true;
+    } catch (err) {
+      const text = err instanceof Error ? err.message : 'Save failed';
+      setMessage(`Uloženie zlyhalo: ${text}`);
+      return false;
     } finally {
       setLoading(false);
     }
@@ -148,6 +163,13 @@ export default function AdminPage() {
   const handleSave = async () => {
     await savePopup(form);
   };
+
+  const previewSizeClass =
+    form.popup_size === 'lg'
+      ? 'max-w-[340px]'
+      : form.popup_size === 'sm'
+        ? 'max-w-[180px]'
+        : 'max-w-[250px]';
 
   const handlePreview = () => {
     window.open('/?popupPreview=1', '_blank', 'noopener,noreferrer');
@@ -234,9 +256,14 @@ export default function AdminPage() {
           {form.image_url && (
             <div className="space-y-2">
               <div className="text-xs text-[#6b6b6b] break-all">{form.image_url}</div>
-              <div className="rounded-lg overflow-hidden border border-[#e8e6e3] max-w-[240px]">
+              <div
+                className={`rounded-lg overflow-hidden border border-[#e8e6e3] ${previewSizeClass} transition-[max-width] duration-200`}
+              >
                 <img src={form.image_url} alt="Popup preview" className="w-full h-auto" />
               </div>
+              <p className="text-xs text-[#6b6b6b]">
+                Náhľad veľkosti: {form.popup_size === 'sm' ? 'Malý' : form.popup_size === 'lg' ? 'Veľký' : 'Stredný'}
+              </p>
             </div>
           )}
           {!form.image_url && (

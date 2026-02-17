@@ -17,54 +17,54 @@ const serviceData: Record<Locale, Service[]> = {
     {
       title: 'Privátny wellness č.1',
       description: 'Súkromný wellness priestor pre nerušený oddych.',
-      image: '/images/image.png',
+      image: '/images/optimized/image.webp',
     },
     {
       title: 'Privátny wellness č.2',
       description: 'Druhý privátny wellness priestor s rovnakým komfortom.',
-      image: '/images/image 6.png',
+      image: '/images/optimized/image-6.webp',
     },
     {
       title: 'Privátna sauna',
       description: 'Súkromná sauna pre nerušený oddych a regeneráciu.',
-      image: '/images/image 2.png',
+      image: '/images/optimized/image-2.webp',
     },
     {
       title: 'Relaxačná miestnosť',
       description: 'Oddychová zóna na pokojný relax.',
-      image: '/images/image 5.png',
+      image: '/images/optimized/image-5.webp',
     },
     {
       title: 'Masáž',
       description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
-      image: '/images/image 7.png',
+      image: '/images/optimized/image-7.webp',
     },
   ],
   en: [
     {
       title: 'Private Wellness No.1',
       description: 'A private wellness space for uninterrupted relaxation.',
-      image: '/images/image.png',
+      image: '/images/optimized/image.webp',
     },
     {
       title: 'Private Wellness No.2',
       description: 'A second private wellness area with the same comfort.',
-      image: '/images/image 6.png',
+      image: '/images/optimized/image-6.webp',
     },
     {
       title: 'Private Sauna',
       description: 'A private sauna for peaceful rest and regeneration.',
-      image: '/images/image 2.png',
+      image: '/images/optimized/image-2.webp',
     },
     {
       title: 'Relax Room',
       description: 'A calm rest zone for peaceful recovery.',
-      image: '/images/image 5.png',
+      image: '/images/optimized/image-5.webp',
     },
     {
       title: 'Massage',
       description: 'A relaxing massage for regeneration and rest.',
-      image: '/images/image 7.png',
+      image: '/images/optimized/image-7.webp',
     },
   ],
 };
@@ -119,8 +119,7 @@ export default function Services({ locale = DEFAULT_LOCALE }: ServicesProps) {
                   }`}
                   style={index === 0 ? { objectPosition: 'center' } : undefined}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  priority={index === 0}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-transparent"></div>
                 <div className="absolute inset-0 flex items-end">

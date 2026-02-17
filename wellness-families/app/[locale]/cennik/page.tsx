@@ -17,42 +17,42 @@ type PageProps = {
 
 const pricingData: Record<Locale, PricingItem[]> = {
   sk: [
-    { title: 'Privátny wellness č.1', duration: '60 min', price: '50 €', image: '/images/image.png' },
-    { title: 'Privátny wellness č.1', duration: '90 min', price: '60 €', image: '/images/image.png' },
-    { title: 'Privátny wellness č.1', duration: '120 min', price: '70 €', image: '/images/image.png' },
-    { title: 'Privátny wellness č.1', duration: '180 min', price: '120 €', image: '/images/image.png' },
-    { title: 'Privátny wellness č.2', duration: '60 min', price: '50 €', image: '/images/image 6.png' },
-    { title: 'Privátny wellness č.2', duration: '90 min', price: '60 €', image: '/images/image 6.png' },
-    { title: 'Privátny wellness č.2', duration: '120 min', price: '70 €', image: '/images/image 6.png' },
-    { title: 'Privátny wellness č.2', duration: '180 min', price: '120 €', image: '/images/image 6.png' },
-    { title: 'Privátna sauna', duration: '60 min', price: '40 €', image: '/images/image 2.png' },
-    { title: 'Privátna sauna', duration: '90 min', price: '50 €', image: '/images/image 2.png' },
-    { title: 'Privátna sauna', duration: '120 min', price: '60 €', image: '/images/image 2.png' },
-    { title: 'Privátna sauna', duration: '180 min', price: '120 €', image: '/images/image 2.png' },
-    { title: 'Relaxačná miestnosť', duration: '60 min', price: '30 €', image: '/images/image 5.png' },
-    { title: 'Relaxačná miestnosť', duration: '90 min', price: '40 €', image: '/images/image 5.png' },
-    { title: 'Relaxačná miestnosť', duration: '120 min', price: '50 €', image: '/images/image 5.png' },
-    { title: 'Relaxačná miestnosť', duration: '180 min', price: '100 €', image: '/images/image 5.png' },
-    { title: 'Masáž', duration: '50 min', price: '35 €', image: '/images/image 7.png' },
+    { title: 'Privátny wellness č.1', duration: '60 min', price: '50 €', image: '/images/optimized/image.webp' },
+    { title: 'Privátny wellness č.1', duration: '90 min', price: '60 €', image: '/images/optimized/image.webp' },
+    { title: 'Privátny wellness č.1', duration: '120 min', price: '70 €', image: '/images/optimized/image.webp' },
+    { title: 'Privátny wellness č.1', duration: '180 min', price: '120 €', image: '/images/optimized/image.webp' },
+    { title: 'Privátny wellness č.2', duration: '60 min', price: '50 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Privátny wellness č.2', duration: '90 min', price: '60 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Privátny wellness č.2', duration: '120 min', price: '70 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Privátny wellness č.2', duration: '180 min', price: '120 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Privátna sauna', duration: '60 min', price: '40 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Privátna sauna', duration: '90 min', price: '50 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Privátna sauna', duration: '120 min', price: '60 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Privátna sauna', duration: '180 min', price: '120 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Relaxačná miestnosť', duration: '60 min', price: '30 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Relaxačná miestnosť', duration: '90 min', price: '40 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Relaxačná miestnosť', duration: '120 min', price: '50 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Relaxačná miestnosť', duration: '180 min', price: '100 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Masáž', duration: '50 min', price: '35 €', image: '/images/optimized/image-7.webp' },
   ],
   en: [
-    { title: 'Private Wellness No.1', duration: '60 min', price: '50 €', image: '/images/image.png' },
-    { title: 'Private Wellness No.1', duration: '90 min', price: '60 €', image: '/images/image.png' },
-    { title: 'Private Wellness No.1', duration: '120 min', price: '70 €', image: '/images/image.png' },
-    { title: 'Private Wellness No.1', duration: '180 min', price: '120 €', image: '/images/image.png' },
-    { title: 'Private Wellness No.2', duration: '60 min', price: '50 €', image: '/images/image 6.png' },
-    { title: 'Private Wellness No.2', duration: '90 min', price: '60 €', image: '/images/image 6.png' },
-    { title: 'Private Wellness No.2', duration: '120 min', price: '70 €', image: '/images/image 6.png' },
-    { title: 'Private Wellness No.2', duration: '180 min', price: '120 €', image: '/images/image 6.png' },
-    { title: 'Private Sauna', duration: '60 min', price: '40 €', image: '/images/image 2.png' },
-    { title: 'Private Sauna', duration: '90 min', price: '50 €', image: '/images/image 2.png' },
-    { title: 'Private Sauna', duration: '120 min', price: '60 €', image: '/images/image 2.png' },
-    { title: 'Private Sauna', duration: '180 min', price: '120 €', image: '/images/image 2.png' },
-    { title: 'Relax Room', duration: '60 min', price: '30 €', image: '/images/image 5.png' },
-    { title: 'Relax Room', duration: '90 min', price: '40 €', image: '/images/image 5.png' },
-    { title: 'Relax Room', duration: '120 min', price: '50 €', image: '/images/image 5.png' },
-    { title: 'Relax Room', duration: '180 min', price: '100 €', image: '/images/image 5.png' },
-    { title: 'Massage', duration: '50 min', price: '35 €', image: '/images/image 7.png' },
+    { title: 'Private Wellness No.1', duration: '60 min', price: '50 €', image: '/images/optimized/image.webp' },
+    { title: 'Private Wellness No.1', duration: '90 min', price: '60 €', image: '/images/optimized/image.webp' },
+    { title: 'Private Wellness No.1', duration: '120 min', price: '70 €', image: '/images/optimized/image.webp' },
+    { title: 'Private Wellness No.1', duration: '180 min', price: '120 €', image: '/images/optimized/image.webp' },
+    { title: 'Private Wellness No.2', duration: '60 min', price: '50 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Private Wellness No.2', duration: '90 min', price: '60 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Private Wellness No.2', duration: '120 min', price: '70 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Private Wellness No.2', duration: '180 min', price: '120 €', image: '/images/optimized/image-6.webp' },
+    { title: 'Private Sauna', duration: '60 min', price: '40 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Private Sauna', duration: '90 min', price: '50 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Private Sauna', duration: '120 min', price: '60 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Private Sauna', duration: '180 min', price: '120 €', image: '/images/optimized/image-2.webp' },
+    { title: 'Relax Room', duration: '60 min', price: '30 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Relax Room', duration: '90 min', price: '40 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Relax Room', duration: '120 min', price: '50 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Relax Room', duration: '180 min', price: '100 €', image: '/images/optimized/image-5.webp' },
+    { title: 'Massage', duration: '50 min', price: '35 €', image: '/images/optimized/image-7.webp' },
   ],
 };
 
@@ -118,8 +118,8 @@ export default async function CennikLocalizedPage({ params }: PageProps) {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-                    loading={index < 2 ? 'eager' : 'lazy'}
-                    priority={index < 2}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    priority={index === 0}
                   />
                 </div>
                 <div className="p-6 sm:p-7 flex flex-col flex-1 gap-3">
