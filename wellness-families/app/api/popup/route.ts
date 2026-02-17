@@ -8,6 +8,23 @@ export const dynamic = 'force-dynamic';
 const SELECT_POPUP_FIELDS = 'id,title,body,image_url,link_url,popup_size,popup_scale,enabled,updated_at';
 const SELECT_POPUP_FIELDS_LEGACY = 'id,title,body,image_url,link_url,popup_size,enabled,updated_at';
 
+const isPopupScaleSchemaError = (
+  error:
+    | {
+        code?: string | null;
+        message?: string | null;
+        details?: string | null;
+      }
+    | null
+    | undefined
+) => {
+  if (!error) return false;
+  if (error.code === '42703' || error.code === 'PGRST204') return true;
+
+  const text = `${error.message ?? ''} ${error.details ?? ''}`.toLowerCase();
+  return text.includes('popup_scale');
+};
+
 const noStoreHeaders = {
   'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
   Pragma: 'no-cache',
@@ -32,7 +49,7 @@ export async function GET(req: Request) {
       .limit(1)
       .maybeSingle();
 
-    if (error?.code === '42703') {
+    if (isPopupScaleSchemaError(error)) {
       const legacy = await supabase
         .from('popups')
         .select(SELECT_POPUP_FIELDS_LEGACY)

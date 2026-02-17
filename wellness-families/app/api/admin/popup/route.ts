@@ -8,6 +8,23 @@ const SELECT_POPUP_FIELDS_LEGACY = 'id,title,body,image_url,link_url,popup_size,
 const MIN_POPUP_SCALE = 70;
 const MAX_POPUP_SCALE = 220;
 
+const isPopupScaleSchemaError = (
+  error:
+    | {
+        code?: string | null;
+        message?: string | null;
+        details?: string | null;
+      }
+    | null
+    | undefined
+) => {
+  if (!error) return false;
+  if (error.code === '42703' || error.code === 'PGRST204') return true;
+
+  const text = `${error.message ?? ''} ${error.details ?? ''}`.toLowerCase();
+  return text.includes('popup_scale');
+};
+
 const isAuthorized = (req: Request) => {
   const header = req.headers.get('x-admin-password') || '';
   const secret = process.env.ADMIN_PASSWORD || '';
@@ -39,7 +56,7 @@ export async function GET(req: Request) {
       .limit(1)
       .maybeSingle();
 
-    if (enabledError?.code === '42703') {
+    if (isPopupScaleSchemaError(enabledError)) {
       const legacy = await supabase
         .from('popups')
         .select(SELECT_POPUP_FIELDS_LEGACY)
@@ -66,7 +83,7 @@ export async function GET(req: Request) {
       .limit(1)
       .maybeSingle();
 
-    if (error?.code === '42703') {
+    if (isPopupScaleSchemaError(error)) {
       const legacy = await supabase
         .from('popups')
         .select(SELECT_POPUP_FIELDS_LEGACY)
@@ -170,7 +187,7 @@ export async function POST(req: Request) {
 
     if (id) {
       ({ data, error } = await supabase.from('popups').update(payload).eq('id', id).select().single());
-      if (error?.code === '42703') {
+      if (isPopupScaleSchemaError(error)) {
         ({ data, error } = await supabase.from('popups').update(legacyPayload).eq('id', id).select().single());
         if (data) {
           data = { ...data, popup_scale: 100 };
@@ -191,7 +208,7 @@ export async function POST(req: Request) {
           .eq('id', existing.id)
           .select()
           .single());
-        if (error?.code === '42703') {
+        if (isPopupScaleSchemaError(error)) {
           ({ data, error } = await supabase
             .from('popups')
             .update(legacyPayload)
@@ -204,7 +221,7 @@ export async function POST(req: Request) {
         }
       } else {
         ({ data, error } = await supabase.from('popups').insert(payload).select().single());
-        if (error?.code === '42703') {
+        if (isPopupScaleSchemaError(error)) {
           ({ data, error } = await supabase.from('popups').insert(legacyPayload).select().single());
           if (data) {
             data = { ...data, popup_scale: 100 };
