@@ -17,7 +17,9 @@ const emptyForm: PopupForm = {
   enabled: true,
 };
 
-const normalizeScale = (value: number) => Math.min(140, Math.max(70, Math.round(value)));
+const MIN_POPUP_SCALE = 70;
+const MAX_POPUP_SCALE = 220;
+const normalizeScale = (value: number) => Math.min(MAX_POPUP_SCALE, Math.max(MIN_POPUP_SCALE, Math.round(value)));
 
 export default function AdminPage() {
   const [password, setPassword] = useState('');
@@ -318,8 +320,8 @@ export default function AdminPage() {
             </div>
             <input
               type="range"
-              min={70}
-              max={140}
+              min={MIN_POPUP_SCALE}
+              max={MAX_POPUP_SCALE}
               step={1}
               value={form.popup_scale}
               onChange={(e) => handleScaleChange(Number(e.target.value))}
@@ -339,7 +341,7 @@ export default function AdminPage() {
               }}
               className="w-full accent-[#CD7F32]"
             />
-            <p className="text-xs text-[#6b6b6b]">Báza je sm/md/lg, slider ju len jemne upraví.</p>
+            <p className="text-xs text-[#6b6b6b]">Báza je sm/md/lg, slider ju doladí v rozsahu {MIN_POPUP_SCALE}% až {MAX_POPUP_SCALE}%.</p>
           </div>
         </div>
 

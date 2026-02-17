@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { DEFAULT_LOCALE, toLocalizedPath, type Locale } from '@/lib/i18n';
 
+const MIN_POPUP_SCALE = 70;
+const MAX_POPUP_SCALE = 220;
+
 type PopupData = {
   id: string;
   title?: string | null;
@@ -171,7 +174,9 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
   const normalizedSize: 'sm' | 'md' | 'lg' =
     popup.popup_size === 'lg' || popup.popup_size === 'sm' ? popup.popup_size : 'md';
   const normalizedScale =
-    typeof popup.popup_scale === 'number' ? Math.min(140, Math.max(70, Math.round(popup.popup_scale))) : 100;
+    typeof popup.popup_scale === 'number'
+      ? Math.min(MAX_POPUP_SCALE, Math.max(MIN_POPUP_SCALE, Math.round(popup.popup_scale)))
+      : 100;
   const scaleStyle = {
     '--popup-scale': String(normalizedScale / 100),
   } as React.CSSProperties;

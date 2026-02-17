@@ -5,6 +5,8 @@ import { getClientIp, rateLimit } from '@/lib/rateLimit';
 
 const SELECT_POPUP_FIELDS = 'id,title,body,image_url,link_url,popup_size,popup_scale,enabled,updated_at';
 const SELECT_POPUP_FIELDS_LEGACY = 'id,title,body,image_url,link_url,popup_size,enabled,updated_at';
+const MIN_POPUP_SCALE = 70;
+const MAX_POPUP_SCALE = 220;
 
 const isAuthorized = (req: Request) => {
   const header = req.headers.get('x-admin-password') || '';
@@ -150,7 +152,7 @@ export async function POST(req: Request) {
       popup_size: popup_size === 'lg' || popup_size === 'md' || popup_size === 'sm' ? popup_size : 'md',
       popup_scale:
         typeof popup_scale === 'number'
-          ? Math.min(140, Math.max(70, Math.round(popup_scale)))
+          ? Math.min(MAX_POPUP_SCALE, Math.max(MIN_POPUP_SCALE, Math.round(popup_scale)))
           : 100,
       enabled: Boolean(enabled),
     };

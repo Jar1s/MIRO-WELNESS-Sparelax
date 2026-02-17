@@ -40,7 +40,7 @@ where popup_scale is null;
 
 alter table public.popups drop constraint if exists popups_popup_scale_check;
 alter table public.popups
-  add constraint popups_popup_scale_check check (popup_scale between 70 and 140);
+  add constraint popups_popup_scale_check check (popup_scale between 70 and 220);
 
 drop policy if exists "public read active popups" on public.popups;
 
