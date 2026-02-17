@@ -3,12 +3,40 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { DEFAULT_LOCALE, getBookioLang, type Locale } from '@/lib/i18n';
 
-export default function Hero() {
+type HeroProps = {
+  locale?: Locale;
+};
+
+const copy = {
+  sk: {
+    subtitle: 'Bratislava',
+    description:
+      'Ponúkame súkromný wellness pre dvoch alebo partiu priateľov. Sme privátny wellness, kde sa zameriavame na každého jednotlivého zákazníka behom procedúr ako saunovanie, masáže alebo kúpanie vo vírivke.',
+    openingHours: 'Otváracie hodiny',
+    weekdays: 'Pondelok – Piatok',
+    weekends: 'Sobota – Nedeľa',
+    cta: 'Rezervovať vstup',
+  },
+  en: {
+    subtitle: 'Bratislava',
+    description:
+      'We offer private wellness for couples or groups of friends. Our private spa focuses on each guest individually during sauna sessions, massages, and jacuzzi relaxation.',
+    openingHours: 'Opening Hours',
+    weekdays: 'Monday – Friday',
+    weekends: 'Saturday – Sunday',
+    cta: 'Book your visit',
+  },
+} as const;
+
+export default function Hero({ locale = DEFAULT_LOCALE }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(false);
   const [isMounted] = useState(true);
+  const t = copy[locale];
   const heroVideoSrc = '/videos/hero-video.mp4?v=20250120';
+  const bookiaLink = `https://services.bookio.com/spa-relax-bratislava/widget?lang=${getBookioLang(locale)}`;
 
   useEffect(() => {
     if (videoRef.current && isMounted) {
@@ -127,25 +155,23 @@ export default function Hero() {
             Spa-Relax
           </h1>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-light text-[#6b6b6b] mb-6 sm:mb-10">
-            Bratislava
+            {t.subtitle}
           </h2>
           
           <p className="text-base sm:text-lg text-[#6b6b6b] leading-relaxed mb-8 sm:mb-12 max-w-xl mx-auto">
-            Ponúkame súkromný wellness pre dvoch alebo partiu priateľov. 
-            Sme privátny wellness, kde sa zameriavame na každého jednotlivého 
-            zákazníka behom procedúr ako saunovanie, masáže alebo kúpanie vo vírivke.
+            {t.description}
           </p>
 
           {/* Opening Hours - Modern Card */}
           <div className="bg-white rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-lg border border-[#e8e6e3] text-center">
-            <p className="text-[#2c2c2c] font-semibold mb-4 text-base sm:text-lg font-display">Otváracie hodiny</p>
+            <p className="text-[#2c2c2c] font-semibold mb-4 text-base sm:text-lg font-display">{t.openingHours}</p>
             <div className="space-y-3">
               <div className="py-2 border-b border-[#e8e6e3]">
-                <p className="text-[#6b6b6b] font-medium text-sm sm:text-base mb-1">Pondelok – Piatok</p>
+                <p className="text-[#6b6b6b] font-medium text-sm sm:text-base mb-1">{t.weekdays}</p>
                 <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">11:00 – 22:00</p>
               </div>
               <div className="py-2">
-                <p className="text-[#6b6b6b] font-medium text-sm sm:text-base mb-1">Sobota – Nedeľa</p>
+                <p className="text-[#6b6b6b] font-medium text-sm sm:text-base mb-1">{t.weekends}</p>
                 <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">10:00 – 22:00</p>
               </div>
             </div>
@@ -153,12 +179,12 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
-              href="https://services.bookio.com/spa-relax-bratislava/widget?lang=sk"
+              href={bookiaLink}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#CD7F32] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-center min-h-[44px] flex items-center justify-center touch-manipulation"
             >
-              Rezervovať vstup
+              {t.cta}
             </Link>
           </div>
         </div>

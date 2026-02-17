@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import { headers } from 'next/headers';
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteChrome from "@/components/SiteChrome";
+import { normalizeLocale } from '@/lib/i18n';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,14 +60,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const localeHeader = (await headers()).get('x-locale');
+  const locale = normalizeLocale(localeHeader);
+
   return (
-    <html lang="sk" className="scroll-smooth">
+    <html
+      lang={locale}
+      className="scroll-smooth"
+      suppressHydrationWarning
+    >
       <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html, body { background: #faf9f7; }
+              @media (prefers-color-scheme: dark) {
+                html, body { background: #04070d; }
+              }
+            `,
+          }}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="format-detection" content="telephone=no" />
@@ -77,6 +95,28 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var media = window.matchMedia('(prefers-color-scheme: dark)');
+                  var applyTheme = function () {
+                    document.documentElement.setAttribute('data-theme', media.matches ? 'dark' : 'light');
+                  };
+                  applyTheme();
+                  if (typeof media.addEventListener === 'function') {
+                    media.addEventListener('change', applyTheme);
+                  } else if (typeof media.addListener === 'function') {
+                    media.addListener(applyTheme);
+                  }
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-body antialiased`}>
         {fbPixelId && (
@@ -96,7 +136,6 @@ export default function RootLayout({
               `}
             </Script>
             <noscript
-              aria-hidden="true"
               dangerouslySetInnerHTML={{
                 __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${fbPixelId}&ev=PageView&noscript=1" />`,
               }}
@@ -104,9 +143,7 @@ export default function RootLayout({
           </>
         )}
 
-        <Header />
-        <main className="overflow-x-hidden">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         <Analytics />
       </body>
     </html>

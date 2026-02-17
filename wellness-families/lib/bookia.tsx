@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 interface BookiaWidgetProps {
   bookiaId?: string;
@@ -13,27 +13,21 @@ export default function BookiaWidget({
   embedUrl,
   className = '' 
 }: BookiaWidgetProps) {
-  const [isLoading, setIsLoading] = useState(true);
-
   // Widget script approach - must be called unconditionally
   useEffect(() => {
-    // If embedUrl is provided, skip widget script
-    if (embedUrl) {
-      setIsLoading(false);
-      return;
-    }
     const actualBookiaId = bookiaId || process.env.NEXT_PUBLIC_BOOKIA_ID;
+
+    // If embedUrl is provided, skip widget script
+    if (embedUrl) return;
     
     if (!actualBookiaId || actualBookiaId === 'YOUR_BOOKIA_ID') {
       console.warn('Bookia ID nie je nastavený. Prosím nastavte NEXT_PUBLIC_BOOKIA_ID v .env.local');
-      setIsLoading(false);
       return;
     }
 
     // Check if script already exists
     const existingScript = document.querySelector(`script[data-bookia-id="${actualBookiaId}"]`);
     if (existingScript) {
-      setIsLoading(false);
       return;
     }
 
@@ -43,13 +37,8 @@ export default function BookiaWidget({
     script.async = true;
     script.setAttribute('data-bookia-id', actualBookiaId);
     
-    script.onload = () => {
-      setIsLoading(false);
-    };
-    
     script.onerror = () => {
       console.error('Nepodarilo sa načítať Bookia widget');
-      setIsLoading(false);
     };
 
     document.body.appendChild(script);
@@ -74,13 +63,7 @@ export default function BookiaWidget({
           className="w-full min-h-[600px] border-0 rounded-lg"
           title="Bookia Rezervácia"
           allow="payment"
-          onLoad={() => setIsLoading(false)}
         />
-        {isLoading && (
-          <div className="min-h-[600px] flex items-center justify-center">
-            <p className="text-gray-500">Načítava sa rezervačný systém...</p>
-          </div>
-        )}
       </div>
     );
   }
@@ -107,14 +90,6 @@ export default function BookiaWidget({
 
   return (
     <div className={className}>
-      {isLoading && (
-        <div className="min-h-[600px] flex items-center justify-center bg-gray-50 rounded-lg">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-500">Načítava sa rezervačný systém...</p>
-          </div>
-        </div>
-      )}
       {/* Bookia widget will be injected here by the script */}
       <div id={`bookia-widget-${actualBookiaId}`} className="min-h-[600px]"></div>
     </div>

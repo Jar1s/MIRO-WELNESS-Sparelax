@@ -41,6 +41,13 @@ export default function KontaktPage() {
                   wellnessheavensk@gmail.com
                 </a>
               </div>
+              <div className="space-y-2">
+                <p className="text-[#2c2c2c] font-semibold text-sm sm:text-base">Telefón</p>
+                <a href="tel:0952594945" className="text-[#CD7F32] hover:text-[#A0522D] transition-colors font-medium text-sm sm:text-base">
+                  0952 594 945
+                </a>
+              </div>
+
             </div>
           </div>
 

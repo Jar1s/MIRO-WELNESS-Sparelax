@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { DEFAULT_LOCALE, toLocalizedPath, type Locale } from '@/lib/i18n';
 
 interface Service {
   title: string;
@@ -7,44 +8,93 @@ interface Service {
   image: string;
 }
 
-const services: Service[] = [
-  {
-    title: 'Privátny wellness č.1',
-    description: 'Súkromný wellness priestor pre nerušený oddych.',
-    image: '/images/image.png',
-  },
-  {
-    title: 'Privátny wellness č.2',
-    description: 'Druhý privátny wellness priestor s rovnakým komfortom.',
-    image: '/images/image 6.png',
-  },
-  {
-    title: 'Privátna sauna',
-    description: 'Súkromná sauna pre nerušený oddych a regeneráciu.',
-    image: '/images/image 2.png',
-  },
-  {
-    title: 'Relaxačná miestnosť',
-    description: 'Oddychová zóna na pokojný relax.',
-    image: '/images/image 5.png',
-  },
-  {
-    title: 'Masáž',
-    description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
-    image: '/images/image 7.png',
-  },
-];
+type ServicesProps = {
+  locale?: Locale;
+};
 
-export default function Services() {
+const serviceData: Record<Locale, Service[]> = {
+  sk: [
+    {
+      title: 'Privátny wellness č.1',
+      description: 'Súkromný wellness priestor pre nerušený oddych.',
+      image: '/images/image.png',
+    },
+    {
+      title: 'Privátny wellness č.2',
+      description: 'Druhý privátny wellness priestor s rovnakým komfortom.',
+      image: '/images/image 6.png',
+    },
+    {
+      title: 'Privátna sauna',
+      description: 'Súkromná sauna pre nerušený oddych a regeneráciu.',
+      image: '/images/image 2.png',
+    },
+    {
+      title: 'Relaxačná miestnosť',
+      description: 'Oddychová zóna na pokojný relax.',
+      image: '/images/image 5.png',
+    },
+    {
+      title: 'Masáž',
+      description: 'Uvoľňujúca masáž pre regeneráciu a oddych.',
+      image: '/images/image 7.png',
+    },
+  ],
+  en: [
+    {
+      title: 'Private Wellness No.1',
+      description: 'A private wellness space for uninterrupted relaxation.',
+      image: '/images/image.png',
+    },
+    {
+      title: 'Private Wellness No.2',
+      description: 'A second private wellness area with the same comfort.',
+      image: '/images/image 6.png',
+    },
+    {
+      title: 'Private Sauna',
+      description: 'A private sauna for peaceful rest and regeneration.',
+      image: '/images/image 2.png',
+    },
+    {
+      title: 'Relax Room',
+      description: 'A calm rest zone for peaceful recovery.',
+      image: '/images/image 5.png',
+    },
+    {
+      title: 'Massage',
+      description: 'A relaxing massage for regeneration and rest.',
+      image: '/images/image 7.png',
+    },
+  ],
+};
+
+const copy = {
+  sk: {
+    kicker: 'Naše služby',
+    title: 'Služby, ktoré vám ponúkame',
+    cta: 'Zobraziť cenník',
+  },
+  en: {
+    kicker: 'Our services',
+    title: 'Services we offer',
+    cta: 'View pricing',
+  },
+} as const;
+
+export default function Services({ locale = DEFAULT_LOCALE }: ServicesProps) {
+  const services = serviceData[locale];
+  const t = copy[locale];
+
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <p className="text-[#CD7F32] text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-4 font-medium">
-            Naše služby
+            {t.kicker}
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[#2c2c2c] mb-4 sm:mb-6">
-            Služby, ktoré vám ponúkame
+            {t.title}
           </h2>
           <div className="w-24 h-1 bg-[#CD7F32] mx-auto"></div>
         </div>
@@ -91,10 +141,10 @@ export default function Services() {
         
         <div className="text-center">
           <Link
-            href="/cennik"
+            href={toLocalizedPath(locale, '/cennik')}
             className="inline-block bg-[#CD7F32] text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-[#A0522D] transition-all shadow-xl hover:shadow-2xl hover:scale-105 min-h-[44px] flex items-center justify-center touch-manipulation"
           >
-            Zobraziť cenník
+            {t.cta}
           </Link>
         </div>
       </div>

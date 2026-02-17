@@ -1,16 +1,40 @@
-import Link from 'next/link';
+import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n';
 
-export default function Footer() {
+type FooterProps = {
+  locale?: Locale;
+};
+
+const copy = {
+  sk: {
+    description:
+      'Privátny Wellness v Bratislave – Ružinov. Súkromný wellness, kde sa zameriavame na každého jednotlivého zákazníka.',
+    contact: 'Kontakt',
+    openingHours: 'Otváracie hodiny',
+    weekdays: 'Pondelok – Piatok',
+    weekends: 'Sobota – Nedeľa',
+    rights: 'Všetky práva vyhradené.',
+  },
+  en: {
+    description:
+      'Private wellness in Bratislava – Ruzinov. A boutique private spa focused on each guest individually.',
+    contact: 'Contact',
+    openingHours: 'Opening Hours',
+    weekdays: 'Monday – Friday',
+    weekends: 'Saturday – Sunday',
+    rights: 'All rights reserved.',
+  },
+} as const;
+
+export default function Footer({ locale = DEFAULT_LOCALE }: FooterProps) {
+  const t = copy[locale];
+
   return (
     <footer className="bg-[#2c2c2c] text-white mt-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 text-center">
         <div className="flex flex-col items-center gap-10 sm:gap-12">
           <div className="space-y-5 sm:space-y-7 max-w-2xl">
             <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#CD7F32] tracking-wide">Spa-Relax Bratislava</h3>
-            <p className="text-white/70 leading-relaxed text-sm sm:text-base tracking-wide">
-              Privátny Wellness v Bratislave – Ružinov. Súkromný wellness, 
-              kde sa zameriavame na každého jednotlivého zákazníka.
-            </p>
+            <p className="text-white/70 leading-relaxed text-sm sm:text-base tracking-wide">{t.description}</p>
             <div className="flex justify-center space-x-6">
               <a
                 href="https://www.facebook.com/sparelaxbratislava/"
@@ -33,7 +57,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3 tracking-wide">
-            <h4 className="text-base sm:text-lg font-display font-semibold text-white">Kontakt</h4>
+            <h4 className="text-base sm:text-lg font-display font-semibold text-white">{t.contact}</h4>
             <div className="text-white/70 text-sm sm:text-base space-y-2">
               <p>Ivanská cesta 15</p>
               <p>821 04 Bratislava</p>
@@ -42,18 +66,23 @@ export default function Footer() {
                   wellnessheavensk@gmail.com
                 </a>
               </p>
+              <p>
+                <a href="tel:0952594945" className="hover:text-[#CD7F32] transition-colors">
+                  0952 594 945
+                </a>
+              </p>
             </div>
           </div>
 
           <div className="space-y-3 tracking-wide">
-            <h4 className="text-base sm:text-lg font-display font-semibold text-white">Otváracie hodiny</h4>
+            <h4 className="text-base sm:text-lg font-display font-semibold text-white">{t.openingHours}</h4>
             <div className="text-white/70 text-sm sm:text-base space-y-3">
               <div>
-                <p>Pondelok – Piatok</p>
+                <p>{t.weekdays}</p>
                 <p className="font-semibold text-white">11:00 – 22:00</p>
               </div>
               <div>
-                <p>Sobota – Nedeľa</p>
+                <p>{t.weekends}</p>
                 <p className="font-semibold text-white">10:00 – 22:00</p>
               </div>
             </div>
@@ -61,7 +90,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 text-center text-white/50 text-xs sm:text-sm tracking-wide">
-          <p>&copy; 2025 Spa-Relax Bratislava. Všetky práva vyhradené.</p>
+          <p>&copy; 2025 Spa-Relax Bratislava. {t.rights}</p>
         </div>
       </div>
     </footer>

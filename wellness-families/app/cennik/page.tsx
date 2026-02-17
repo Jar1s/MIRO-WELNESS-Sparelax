@@ -35,13 +35,6 @@ export default function CennikPage() {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 mb-8 sm:mb-12 border border-[#e8e6e3] text-center">
-            <p className="text-[#6b6b6b] text-base sm:text-lg leading-relaxed">
-              Zapožičanie plachty a uteráku v cene.
-              Osušku a župan vám radi zapožičiame za 1,5€, resp. 2,5€.
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {pricing.map((item, index) => (
               <div
