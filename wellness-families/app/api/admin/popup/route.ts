@@ -3,6 +3,9 @@ import { timingSafeEqual } from 'crypto';
 import { getSupabaseServer } from '@/lib/supabase';
 import { getClientIp, rateLimit } from '@/lib/rateLimit';
 
+const SELECT_POPUP_FIELDS = 'id,title,body,image_url,link_url,popup_size,popup_scale,enabled,updated_at';
+const SELECT_POPUP_FIELDS_LEGACY = 'id,title,body,image_url,link_url,popup_size,enabled,updated_at';
+
 const isAuthorized = (req: Request) => {
   const header = req.headers.get('x-admin-password') || '';
   const secret = process.env.ADMIN_PASSWORD || '';
@@ -26,13 +29,25 @@ export async function GET(req: Request) {
 
   try {
     const supabase = getSupabaseServer();
-    const { data: enabledPopup, error: enabledError } = await supabase
+    let { data: enabledPopup, error: enabledError } = await supabase
       .from('popups')
-      .select('id,title,body,image_url,link_url,popup_size,enabled,updated_at')
+      .select(SELECT_POPUP_FIELDS)
       .eq('enabled', true)
       .order('updated_at', { ascending: false })
       .limit(1)
       .maybeSingle();
+
+    if (enabledError?.code === '42703') {
+      const legacy = await supabase
+        .from('popups')
+        .select(SELECT_POPUP_FIELDS_LEGACY)
+        .eq('enabled', true)
+        .order('updated_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      enabledPopup = legacy.data ? { ...legacy.data, popup_scale: 100 } : null;
+      enabledError = legacy.error;
+    }
 
     if (enabledError) {
       return NextResponse.json({ error: enabledError.message }, { status: 500 });
@@ -42,12 +57,23 @@ export async function GET(req: Request) {
       return NextResponse.json({ popup: enabledPopup }, { status: 200 });
     }
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from('popups')
-      .select('id,title,body,image_url,link_url,popup_size,enabled,updated_at')
+      .select(SELECT_POPUP_FIELDS)
       .order('updated_at', { ascending: false })
       .limit(1)
       .maybeSingle();
+
+    if (error?.code === '42703') {
+      const legacy = await supabase
+        .from('popups')
+        .select(SELECT_POPUP_FIELDS_LEGACY)
+        .order('updated_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      data = legacy.data ? { ...legacy.data, popup_scale: 100 } : null;
+      error = legacy.error;
+    }
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
@@ -79,6 +105,7 @@ export async function POST(req: Request) {
       image_url,
       link_url,
       popup_size,
+      popup_scale,
       enabled,
     } = body || {};
 
@@ -96,6 +123,9 @@ export async function POST(req: Request) {
     }
     if (popup_size && typeof popup_size !== 'string') {
       return NextResponse.json({ error: 'Invalid popup_size' }, { status: 400 });
+    }
+    if (popup_scale !== undefined && typeof popup_scale !== 'number') {
+      return NextResponse.json({ error: 'Invalid popup_scale' }, { status: 400 });
     }
 
     const supabase = getSupabaseServer();
@@ -118,7 +148,19 @@ export async function POST(req: Request) {
       image_url: resolvedImageUrl,
       link_url: link_url ? link_url.slice(0, 500) : null,
       popup_size: popup_size === 'lg' || popup_size === 'md' || popup_size === 'sm' ? popup_size : 'md',
+      popup_scale:
+        typeof popup_scale === 'number'
+          ? Math.min(140, Math.max(70, Math.round(popup_scale)))
+          : 100,
       enabled: Boolean(enabled),
+    };
+    const legacyPayload = {
+      title: payload.title,
+      body: payload.body,
+      image_url: payload.image_url,
+      link_url: payload.link_url,
+      popup_size: payload.popup_size,
+      enabled: payload.enabled,
     };
 
     let data;
@@ -126,6 +168,12 @@ export async function POST(req: Request) {
 
     if (id) {
       ({ data, error } = await supabase.from('popups').update(payload).eq('id', id).select().single());
+      if (error?.code === '42703') {
+        ({ data, error } = await supabase.from('popups').update(legacyPayload).eq('id', id).select().single());
+        if (data) {
+          data = { ...data, popup_scale: 100 };
+        }
+      }
     } else {
       const { data: existing } = await supabase
         .from('popups')
@@ -141,8 +189,25 @@ export async function POST(req: Request) {
           .eq('id', existing.id)
           .select()
           .single());
+        if (error?.code === '42703') {
+          ({ data, error } = await supabase
+            .from('popups')
+            .update(legacyPayload)
+            .eq('id', existing.id)
+            .select()
+            .single());
+          if (data) {
+            data = { ...data, popup_scale: 100 };
+          }
+        }
       } else {
         ({ data, error } = await supabase.from('popups').insert(payload).select().single());
+        if (error?.code === '42703') {
+          ({ data, error } = await supabase.from('popups').insert(legacyPayload).select().single());
+          if (data) {
+            data = { ...data, popup_scale: 100 };
+          }
+        }
       }
     }
 

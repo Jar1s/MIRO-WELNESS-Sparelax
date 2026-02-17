@@ -11,6 +11,7 @@ type PopupData = {
   image_url?: string | null;
   link_url?: string | null;
   popup_size?: 'sm' | 'md' | 'lg' | null;
+  popup_scale?: number | null;
   updated_at?: string | null;
 };
 
@@ -169,12 +170,17 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
 
   const normalizedSize: 'sm' | 'md' | 'lg' =
     popup.popup_size === 'lg' || popup.popup_size === 'sm' ? popup.popup_size : 'md';
+  const normalizedScale =
+    typeof popup.popup_scale === 'number' ? Math.min(140, Math.max(70, Math.round(popup.popup_scale))) : 100;
+  const scaleStyle = {
+    '--popup-scale': String(normalizedScale / 100),
+  } as React.CSSProperties;
   const sizeClass =
     normalizedSize === 'lg'
-      ? 'w-[88vw] sm:w-[480px] lg:w-[560px] max-h-[82vh] sm:max-h-[88vh]'
+      ? 'w-[calc(88vw*var(--popup-scale))] sm:w-[calc(480px*var(--popup-scale))] lg:w-[calc(560px*var(--popup-scale))] max-h-[calc(82vh*var(--popup-scale))] sm:max-h-[calc(88vh*var(--popup-scale))]'
       : normalizedSize === 'sm'
-        ? 'w-[56vw] sm:w-[220px] lg:w-[260px] max-h-[54vh] sm:max-h-[60vh]'
-        : 'w-[70vw] sm:w-[320px] lg:w-[380px] max-h-[66vh] sm:max-h-[72vh]';
+        ? 'w-[calc(56vw*var(--popup-scale))] sm:w-[calc(220px*var(--popup-scale))] lg:w-[calc(260px*var(--popup-scale))] max-h-[calc(54vh*var(--popup-scale))] sm:max-h-[calc(60vh*var(--popup-scale))]'
+        : 'w-[calc(70vw*var(--popup-scale))] sm:w-[calc(320px*var(--popup-scale))] lg:w-[calc(380px*var(--popup-scale))] max-h-[calc(66vh*var(--popup-scale))] sm:max-h-[calc(72vh*var(--popup-scale))]';
 
   return (
     <div
@@ -207,7 +213,7 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
                   className="block rounded-sm outline-none ring-offset-2 ring-offset-black focus-visible:ring-2 focus-visible:ring-[#CD7F32]"
                   aria-label={t.openPricing}
                 >
-                  <div className={`${sizeClass} flex items-center justify-center`}>
+                  <div className={`${sizeClass} flex items-center justify-center`} style={scaleStyle}>
                     <img
                       src={popup.image_url}
                       alt={popup.title || t.fallbackAlt}

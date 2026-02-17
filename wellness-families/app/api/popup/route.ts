@@ -5,6 +5,9 @@ import { getClientIp, rateLimit } from '@/lib/rateLimit';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
+const SELECT_POPUP_FIELDS = 'id,title,body,image_url,link_url,popup_size,popup_scale,enabled,updated_at';
+const SELECT_POPUP_FIELDS_LEGACY = 'id,title,body,image_url,link_url,popup_size,enabled,updated_at';
+
 const noStoreHeaders = {
   'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
   Pragma: 'no-cache',
@@ -21,13 +24,25 @@ export async function GET(req: Request) {
 
     const supabase = getSupabasePublic();
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from('popups')
-      .select('id,title,body,image_url,link_url,popup_size,enabled,updated_at')
+      .select(SELECT_POPUP_FIELDS)
       .eq('enabled', true)
       .order('updated_at', { ascending: false })
       .limit(1)
       .maybeSingle();
+
+    if (error?.code === '42703') {
+      const legacy = await supabase
+        .from('popups')
+        .select(SELECT_POPUP_FIELDS_LEGACY)
+        .eq('enabled', true)
+        .order('updated_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      data = legacy.data ? { ...legacy.data, popup_scale: 100 } : null;
+      error = legacy.error;
+    }
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500, headers: noStoreHeaders });

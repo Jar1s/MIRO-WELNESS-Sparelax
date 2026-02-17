@@ -5,6 +5,7 @@ create table if not exists public.popups (
   body text,
   link_url text,
   popup_size text default 'md',
+  popup_scale integer not null default 100,
   enabled boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -29,6 +30,17 @@ alter table public.popups enable row level security;
 
 alter table public.popups
   add column if not exists popup_size text default 'md';
+
+alter table public.popups
+  add column if not exists popup_scale integer not null default 100;
+
+update public.popups
+set popup_scale = 100
+where popup_scale is null;
+
+alter table public.popups drop constraint if exists popups_popup_scale_check;
+alter table public.popups
+  add constraint popups_popup_scale_check check (popup_scale between 70 and 140);
 
 drop policy if exists "public read active popups" on public.popups;
 

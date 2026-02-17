@@ -6,14 +6,18 @@ type PopupForm = {
   id?: string;
   image_url: string;
   popup_size: 'sm' | 'md' | 'lg';
+  popup_scale: number;
   enabled: boolean;
 };
 
 const emptyForm: PopupForm = {
   image_url: '',
   popup_size: 'md',
+  popup_scale: 100,
   enabled: true,
 };
+
+const normalizeScale = (value: number) => Math.min(140, Math.max(70, Math.round(value)));
 
 export default function AdminPage() {
   const [password, setPassword] = useState('');
@@ -64,6 +68,7 @@ export default function AdminPage() {
         id: p.id,
         image_url: p.image_url || '',
         popup_size: p.popup_size === 'lg' || p.popup_size === 'sm' ? p.popup_size : 'md',
+        popup_scale: typeof p.popup_scale === 'number' ? normalizeScale(p.popup_scale) : 100,
         enabled: Boolean(p.enabled),
       });
       if (!p.image_url) {
@@ -105,6 +110,7 @@ export default function AdminPage() {
           id: payload.id,
           image_url: payload.image_url,
           popup_size: payload.popup_size,
+          popup_scale: normalizeScale(payload.popup_scale),
           enabled: payload.enabled,
         }),
       });
@@ -119,6 +125,7 @@ export default function AdminPage() {
           json.popup?.popup_size === 'lg' || json.popup?.popup_size === 'sm'
             ? json.popup.popup_size
             : 'md',
+        popup_scale: typeof json.popup?.popup_scale === 'number' ? normalizeScale(json.popup.popup_scale) : 100,
       }));
       setMessage('Uložené.');
       if (typeof window !== 'undefined') {
@@ -164,12 +171,25 @@ export default function AdminPage() {
     await savePopup(form);
   };
 
+  const handleScaleChange = (value: number) => {
+    setForm((prev) => ({ ...prev, popup_scale: normalizeScale(value) }));
+  };
+
+  const handleScaleCommit = (value: number) => {
+    const nextForm = { ...form, popup_scale: normalizeScale(value) };
+    setForm(nextForm);
+    void savePopup(nextForm);
+  };
+
   const previewSizeClass =
     form.popup_size === 'lg'
-      ? 'max-w-[320px]'
+      ? 'max-w-[calc(320px*var(--popup-scale))]'
       : form.popup_size === 'sm'
-        ? 'max-w-[160px]'
-        : 'max-w-[230px]';
+        ? 'max-w-[calc(160px*var(--popup-scale))]'
+        : 'max-w-[calc(230px*var(--popup-scale))]';
+  const previewScaleStyle = {
+    '--popup-scale': String(form.popup_scale / 100),
+  } as React.CSSProperties;
 
   const handlePreview = () => {
     window.open('/?popupPreview=1', '_blank', 'noopener,noreferrer');
@@ -258,12 +278,14 @@ export default function AdminPage() {
               <div className="text-xs text-[#6b6b6b] break-all">{form.image_url}</div>
               <div
                 className={`rounded-lg overflow-hidden border border-[#e8e6e3] ${previewSizeClass} transition-[max-width] duration-200`}
+                style={previewScaleStyle}
               >
                 <img src={form.image_url} alt="Popup preview" className="w-full h-auto" />
               </div>
               <p className="text-xs text-[#6b6b6b]">
                 Náhľad veľkosti: {form.popup_size === 'sm' ? 'Malý' : form.popup_size === 'lg' ? 'Veľký' : 'Stredný'}
               </p>
+              <p className="text-xs text-[#6b6b6b]">Mierka: {form.popup_scale}%</p>
             </div>
           )}
           {!form.image_url && (
@@ -289,6 +311,36 @@ export default function AdminPage() {
             <option value="md">Stredný</option>
             <option value="lg">Veľký</option>
           </select>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs text-[#6b6b6b]">
+              <span>Jemné doladenie</span>
+              <span>{form.popup_scale}%</span>
+            </div>
+            <input
+              type="range"
+              min={70}
+              max={140}
+              step={1}
+              value={form.popup_scale}
+              onChange={(e) => handleScaleChange(Number(e.target.value))}
+              onMouseUp={(e) => handleScaleCommit(Number((e.target as HTMLInputElement).value))}
+              onTouchEnd={(e) => handleScaleCommit(Number((e.target as HTMLInputElement).value))}
+              onKeyUp={(e) => {
+                if (
+                  e.key === 'ArrowLeft' ||
+                  e.key === 'ArrowRight' ||
+                  e.key === 'Home' ||
+                  e.key === 'End' ||
+                  e.key === 'PageUp' ||
+                  e.key === 'PageDown'
+                ) {
+                  handleScaleCommit(Number((e.target as HTMLInputElement).value));
+                }
+              }}
+              className="w-full accent-[#CD7F32]"
+            />
+            <p className="text-xs text-[#6b6b6b]">Báza je sm/md/lg, slider ju len jemne upraví.</p>
+          </div>
         </div>
 
         <div className="flex items-center gap-3">
