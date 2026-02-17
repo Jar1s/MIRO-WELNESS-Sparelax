@@ -222,7 +222,7 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
                     <img
                       src={popup.image_url}
                       alt={popup.title || t.fallbackAlt}
-                      className="block h-auto w-auto max-h-full max-w-full shadow-2xl"
+                      className="block h-auto w-full max-h-full shadow-2xl"
                       draggable={false}
                       onError={() => setImageOk(false)}
                     />
