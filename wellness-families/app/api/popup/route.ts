@@ -3,13 +3,20 @@ import { getSupabasePublic } from '@/lib/supabase';
 import { getClientIp, rateLimit } from '@/lib/rateLimit';
 
 export const revalidate = 0;
+export const dynamic = 'force-dynamic';
+
+const noStoreHeaders = {
+  'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+  Pragma: 'no-cache',
+  Expires: '0',
+};
 
 export async function GET(req: Request) {
   try {
     const ip = getClientIp(req);
     const limit = rateLimit(`popup:${ip}`, 60, 60_000);
     if (!limit.ok) {
-      return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 });
+      return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429, headers: noStoreHeaders });
     }
 
     const supabase = getSupabasePublic();
@@ -23,11 +30,11 @@ export async function GET(req: Request) {
       .maybeSingle();
 
     if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json({ error: error.message }, { status: 500, headers: noStoreHeaders });
     }
 
-    return NextResponse.json({ popup: data || null }, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+    return NextResponse.json({ popup: data || null }, { status: 200, headers: noStoreHeaders });
+  } catch {
+    return NextResponse.json({ error: 'Server error' }, { status: 500, headers: noStoreHeaders });
   }
 }

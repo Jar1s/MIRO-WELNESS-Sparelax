@@ -166,10 +166,10 @@ export default function AdminPage() {
 
   const previewSizeClass =
     form.popup_size === 'lg'
-      ? 'max-w-[340px]'
+      ? 'max-w-[320px]'
       : form.popup_size === 'sm'
-        ? 'max-w-[180px]'
-        : 'max-w-[250px]';
+        ? 'max-w-[160px]'
+        : 'max-w-[230px]';
 
   const handlePreview = () => {
     window.open('/?popupPreview=1', '_blank', 'noopener,noreferrer');

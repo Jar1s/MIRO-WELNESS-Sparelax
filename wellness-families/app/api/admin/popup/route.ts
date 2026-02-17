@@ -150,6 +150,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
+    if (data?.id && payload.enabled) {
+      const { error: disableOthersError } = await supabase
+        .from('popups')
+        .update({ enabled: false })
+        .neq('id', data.id)
+        .eq('enabled', true);
+
+      if (disableOthersError) {
+        return NextResponse.json({ error: disableOthersError.message }, { status: 500 });
+      }
+    }
+
     return NextResponse.json({ popup: data }, { status: 200 });
   } catch {
     return NextResponse.json({ error: 'Server error' }, { status: 500 });

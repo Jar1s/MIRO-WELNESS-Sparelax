@@ -46,7 +46,7 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
 
   const loadPopup = useCallback(async () => {
     try {
-      const res = await fetch('/api/popup', { cache: 'no-store' });
+      const res = await fetch(`/api/popup?_t=${Date.now()}`, { cache: 'no-store' });
       if (!res.ok) return;
 
       const json = await res.json();
@@ -171,10 +171,10 @@ export default function PromoPopup({ locale = DEFAULT_LOCALE }: PromoPopupProps)
     popup.popup_size === 'lg' || popup.popup_size === 'sm' ? popup.popup_size : 'md';
   const sizeClass =
     normalizedSize === 'lg'
-      ? 'w-[90vw] sm:w-[520px] lg:w-[620px] max-h-[84vh] sm:max-h-[88vh]'
+      ? 'w-[88vw] sm:w-[480px] lg:w-[560px] max-h-[82vh] sm:max-h-[88vh]'
       : normalizedSize === 'sm'
-        ? 'w-[64vw] sm:w-[240px] lg:w-[300px] max-h-[60vh] sm:max-h-[66vh]'
-        : 'w-[80vw] sm:w-[380px] lg:w-[470px] max-h-[72vh] sm:max-h-[80vh]';
+        ? 'w-[56vw] sm:w-[220px] lg:w-[260px] max-h-[54vh] sm:max-h-[60vh]'
+        : 'w-[70vw] sm:w-[320px] lg:w-[380px] max-h-[66vh] sm:max-h-[72vh]';
 
   return (
     <div
